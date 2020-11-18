@@ -15,7 +15,7 @@ class Carro extends Model
         return $this->belongsTo('App/Servico');
     }
 
-    public function Proprietarios(){
-        return $this->hasMany(Cliente::class, 'IdCliente', 'Proprietario');
+    public function Proprietario(){
+        return $this->hasOne(Cliente::class, 'IdCliente', 'Proprietario');
     }
 }

@@ -13,7 +13,7 @@ class Cliente extends Model
     protected $fillable = ['IdCliente', 'Nome', 'IdEndereco'];
 
     public function Carros(){
-        return $this->belongsTo(Carro::class, 'IdCliente', 'Proprietario');
+        return $this->hasMany(Carro::class, 'Proprietario', 'IdCliente');
     }
 
     public function Endereco(){

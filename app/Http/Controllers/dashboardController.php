@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Carro;
-use App\Cliente;
-use App\Repositories\ClienteRepository;
+use App\balancoFinanceiro;
 use Illuminate\Http\Request;
 
-class CarroController extends Controller
+class dashboardController extends Controller
 {
     private $model;
-    public function __construct(Carro $model){
+
+    public function __construct(balancoFinanceiro $model)
+    {
         $this->model = $model;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +21,9 @@ class CarroController extends Controller
      */
     public function index()
     {
-        //
+        return view('Dashboard.listagemDashboard', [
+            'registros' => $this->model->paginate(8),
+        ]);
     }
 
     /**
@@ -28,13 +31,9 @@ class CarroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Cliente $cliente)
+    public function create()
     {
-
-
-        return view('Carros.cadastroCarros',[
-            'cliente' => $cliente
-        ]);
+        //
     }
 
     /**
@@ -45,8 +44,7 @@ class CarroController extends Controller
      */
     public function store(Request $request)
     {
-        $this->model->create($request->all());
-        return redirect()->route('clientes.detalhes', $request->Proprietario);
+        //
     }
 
     /**

@@ -27,7 +27,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="cidade">Proprietario</label>
-                    <input type="text" class="form-control" id="cidade" name="cidade" value="{{ $servico->carros->proprietarios->Nome }}">
+                    <input type="text" class="form-control" id="cidade" name="cidade" value="{{ $servico->carros->proprietario->Nome }}">
                 </div>
 
                 <div class="form-group col-md-6">

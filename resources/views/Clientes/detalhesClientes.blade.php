@@ -67,10 +67,19 @@
                     <input type="text" class="form-control" id="complemento" name="complemento" value="{{ $cliente->endereco[0]->Complemento }}">
                 </div>
                 @endif
-
-        </fieldset>
-            <a href="{{ route('carros.cadastro') }}"class="btn btn-primary">Adicionar um carro</a>
             </div>
+        </fieldset>
+
+        <a href="{{ route('carros.cadastro', $cliente) }}"class="btn btn-primary">Adicionar um carro</a>
+        <ul class="list-group" id="listCarros">
+            @foreach($cliente->carros as $carro)
+                <li class="list-group-item">{{ $carro->Modelo }} {{ strtolower($carro->Cor) }} - {{$carro->Placa}}</li>
+            @endforeach
+        </ul>
+
+
+
     </form>
 @endsection
+
 

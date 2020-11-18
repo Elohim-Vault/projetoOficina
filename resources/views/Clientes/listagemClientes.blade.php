@@ -3,27 +3,60 @@
     <div id="errors">
 
     </div>
-    <table class="table table-bordered table text-center" id="clientesTable">
-        <thead>
+
+    <h3 class="text-center mb-4">Clientes fisicos</h3>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
             <th scope="col">Nome</th>
             <th scope="col">CPF</th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        @foreach($clientes as $cliente)
+
+            @if($cliente->Fisico)
+                <tr>
+                    <th scope="row">{{ $cliente->IdCliente }}</th>
+                    <td>{{ $cliente->Nome }}</td>
+                    <td>{{ $cliente->Fisico->Cpf }}</td>
+                    <td><a href="{{ route('clientes.detalhes', $cliente->IdCliente) }}" class="btn btn-primary">Ver mais</a> </td>
+                    <td><a href="" class="btn btn-warning">Editar</a></td>
+                    <td><button class="btn btn-danger" id="btnDeletarCliente">Deletar</button></td>
+                </tr>
+            @endif
+        @endforeach
+        </tbody>
+    </table>
+    <h3 class="text-center mb-4">Clientes juridicos</h3>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome da empresa</th>
+            <th scope="col">CNPJ</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
         @foreach($clientes as $cliente)
-        <tr>
-            <th scope="row">{{ $cliente->IdCliente }}</th>
-            <td>{{ $cliente->Nome }}</td>
-            <td>{{ $cliente->Cpf }}</td>
-            <td><a href="{{ route('clientes.detalhes', $cliente->IdCliente) }}" class="btn btn-primary">Ver mais</a> </td>
-            <td><a href="" class="btn btn-warning">Editar</a></td>
-            <td><button class="btn btn-danger" id="btnDeletarCliente">Deletar</button></td>
-        </tr>
+            @if($cliente->Juridico)
+                <tr>
+                    <th scope="row">{{ $cliente->IdCliente }}</th>
+                    <td>{{ $cliente->Nome }}</td>
+                    <td>{{ $cliente->Juridico->CNPJ }}</td>
+                    <td><a href="{{ route('clientes.detalhes', $cliente->IdCliente) }}" class="btn btn-primary">Ver mais</a> </td>
+                    <td><a href="" class="btn btn-warning">Editar</a></td>
+                    <td><button class="btn btn-danger" id="btnDeletarCliente">Deletar</button></td>
+                </tr>
+            @endif
         @endforeach
         </tbody>
     </table>

@@ -24,6 +24,10 @@
     font-size: 50px;
     left: 700px;
 }
+
+#listCarros{
+    margin-top: 20px;
+}
 form{
     margin-left: 100px;
 }

@@ -23,4 +23,6 @@ class Servico extends Model
     public function Funcionarios(){
             return $this->belongsToMany(Funcionario::class, 'servicosfuncionarios', 'IdServico', 'IdFuncionario');
     }
+
+
 }

@@ -1,5 +1,6 @@
 @extends('header')
 @section('conteudo')
+    <button class="btn btn-primary mb-4">Atualizar o estoque</button>
     <table class="table table-striped table-bordered text-center">
         <thead>
         <tr>

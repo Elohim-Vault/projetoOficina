@@ -7,6 +7,7 @@ use App\Http\Controllers\servicosProdutosController;
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\CarroController;
+use App\Http\Controllers\dashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,10 +19,8 @@ use App\Http\Controllers\CarroController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('/', [dashboardController::class, 'index'])->name('dashboard');
 
 // Serviços
 Route::prefix('servicos')->group(function (){
@@ -62,7 +61,7 @@ Route::prefix('produtos')->group(function (){
 
 // Carros
 Route::prefix('carros')->group(function (){
-    Route::get('cadastro', [CarroController::class, 'create'])->name('carros.cadastro');
+    Route::get('cadastro/{cliente}', [CarroController::class, 'create'])->name('carros.cadastro');
     Route::post('armazenar', [CarroController::class, 'store'])->name('carros.armazenar');
 });
 

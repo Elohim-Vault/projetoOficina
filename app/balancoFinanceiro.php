@@ -11,10 +11,14 @@ class balancoFinanceiro extends Model
     protected $table = 'balancoFinanceiro';
     public $timestamps = false;
 
-    protected $fillable = ['Valor', 'Justificativa', 'Notafiscal', 'Servico',];
+    protected $fillable = ['Valor', 'Justificativa', 'Notafiscal', 'Servico', 'Produto'];
 
-    public function servico(){
-        return $this->hasOne(Servico::class, 'Servico', 'IdServico');
+    public function Servico(){
+        return $this->hasOne(Servico::class, 'IdServico', 'Servico');
+    }
+
+    public function Produto(){
+        return $this->hasMany(Produto::class, 'Produto', 'IdProduto');
     }
 
 }

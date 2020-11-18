@@ -3,8 +3,41 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb7a18fe-5964-455b-9a00-97589507e5e2" name="Default Changelist" comment="" />
+    <list default="true" id="eb7a18fe-5964-455b-9a00-97589507e5e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/Dashboard/listagemDashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Carro.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Carro.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Cliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Cliente.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CarroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CarroController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Servico.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Servico.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/balancoFinanceiro.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/balancoFinanceiro.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/estilo.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/estilo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Carros/cadastroCarros.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Carros/cadastroCarros.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Clientes/detalhesClientes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Clientes/detalhesClientes.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Clientes/listagemClientes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Clientes/listagemClientes.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Produtos/listagemProdutos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Produtos/listagemProdutos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Servicos/detalhesServicos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Servicos/detalhesServicos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +48,7 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/resources/lang/pt-BR" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -181,12 +214,30 @@
       <workItem from="1605455116282" duration="4925000" />
       <workItem from="1605539597419" duration="11969000" />
       <workItem from="1605556811656" duration="566000" />
-      <workItem from="1605557447698" duration="1969000" />
+      <workItem from="1605557447698" duration="2543000" />
+      <workItem from="1605620584633" duration="3011000" />
+      <workItem from="1605643953703" duration="1694000" />
+      <workItem from="1605659217278" duration="3692000" />
+      <workItem from="1605729920184" duration="609000" />
+      <workItem from="1605731303039" duration="182000" />
+      <workItem from="1605740648589" duration="1700000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="498" y="206" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605551490531">
@@ -197,10 +248,10 @@
       <screen x="0" y="0" width="1474" height="808" />
     </state>
     <state x="455" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1474.808@0.0.1474.808" timestamp="1605038445943" />
-    <state x="468" y="159" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605551376958">
+    <state x="468" y="159" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605645581789">
       <screen x="0" y="0" width="1474" height="808" />
     </state>
-    <state x="468" y="159" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1474.808@0.0.1474.808" timestamp="1605551376958" />
+    <state x="468" y="159" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1474.808@0.0.1474.808" timestamp="1605645581789" />
     <state x="246" y="49" key="SettingsEditor" timestamp="1605314567636">
       <screen x="0" y="0" width="1474" height="808" />
     </state>
@@ -209,10 +260,10 @@
       <screen x="0" y="0" width="1474" height="808" />
     </state>
     <state x="394" y="183" key="run.anything.popup/0.0.1474.808@0.0.1474.808" timestamp="1605557459038" />
-    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup" timestamp="1605559300204">
+    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup" timestamp="1605743076172">
       <screen x="0" y="0" width="1474" height="808" />
     </state>
-    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup/0.0.1474.808@0.0.1474.808" timestamp="1605559300204" />
+    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup/0.0.1474.808@0.0.1474.808" timestamp="1605743076172" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
