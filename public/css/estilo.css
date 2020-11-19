@@ -8,6 +8,15 @@
     margin-left: 70px;
 }
 
+.card{
+    border-radius: 20px;
+
+}
+
+.card h3{
+    font-size: 60px;
+}
+
 #btnRegistro{
     position: relative;
     margin-left: 100px;

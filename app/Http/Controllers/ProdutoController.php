@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Produto;
 use App\Repositories\ProdutoRepository;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class ProdutoController extends Controller
 {
@@ -73,6 +74,7 @@ class ProdutoController extends Controller
 
     public function search(Request $request)
     {
+        dd(Input::all());
         if($request->search != ''){
             $produtos = $this->model->search($request->atributoProduto, $request->search);
         }else{

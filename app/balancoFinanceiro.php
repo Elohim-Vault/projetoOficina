@@ -18,7 +18,7 @@ class balancoFinanceiro extends Model
     }
 
     public function Produto(){
-        return $this->hasMany(Produto::class, 'Produto', 'IdProduto');
+        return $this->hasOne(Produto::class, 'Codigo', 'Produto');
     }
 
 }
