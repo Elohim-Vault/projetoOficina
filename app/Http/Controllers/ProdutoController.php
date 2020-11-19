@@ -45,7 +45,18 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        $this->model->create($request->all());
+        $produtoExiste = $this->model->find($request->Codigo);
+
+        if($produtoExiste){
+            $quantidade = $produtoExiste->Quantidade;
+            $this->model->update($request->Codigo, [
+                'Valor' => $request->Valor,
+                'Quantidade' => $quantidade + $request->Quantidade
+            ]);
+        }else{
+            $this->model->create($request->all());
+        }
+
         return redirect()->route('produtos.index');
     }
 
@@ -58,6 +69,18 @@ class ProdutoController extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function search(Request $request)
+    {
+        if($request->search != ''){
+            $produtos = $this->model->search($request->atributoProduto, $request->search);
+        }else{
+            $produtos = $this->model->paginate(8);
+        }
+
+        return response()->json(['produtos' => $produtos]);
+
     }
 
     /**
@@ -78,7 +101,7 @@ class ProdutoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
         //
     }

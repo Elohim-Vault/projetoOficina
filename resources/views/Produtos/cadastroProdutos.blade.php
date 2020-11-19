@@ -4,7 +4,7 @@
         @csrf
 
         <div class="form-group">
-            <label for="Nomeproduto">Codigo</label>
+            <label for="Nomeproduto">Codigo de barras</label>
             <input type="text" class="form-control" id="Codigo" name="Codigo" >
         </div>
 
@@ -28,7 +28,7 @@
             <input type="number" class="form-control" id="Quantidade" name="Quantidade" >
         </div>
 
-        <label for="Valor">Valor unitario</label>
+        <label for="Valor">Valor de compra unitario</label>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">R$</span>

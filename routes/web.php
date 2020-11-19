@@ -56,6 +56,7 @@ Route::prefix('funcionarios')->group(function (){
 Route::prefix('produtos')->group(function (){
     Route::get('', [ProdutoController::class, 'index'])->name('produtos.index');
     Route::get('cadastro', [ProdutoController::class, 'create'])->name('produtos.cadastro');
+    Route::get('search', [ProdutoController::class, 'search'])->name('produtos.pesquisar');
     Route::post('armazenar', [ProdutoController::class, 'store'])->name('produtos.armazenar');
 });
 

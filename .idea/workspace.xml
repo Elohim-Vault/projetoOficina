@@ -23,19 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb7a18fe-5964-455b-9a00-97589507e5e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/Dashboard/listagemDashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Carro.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Carro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Cliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Cliente.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CarroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CarroController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Servico.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Servico.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/balancoFinanceiro.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/balancoFinanceiro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/estilo.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/estilo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Carros/cadastroCarros.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Carros/cadastroCarros.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Clientes/detalhesClientes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Clientes/detalhesClientes.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Clientes/listagemClientes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Clientes/listagemClientes.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProdutoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProdutoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ProdutoRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ProdutoRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Produtos/cadastroProdutos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Produtos/cadastroProdutos.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Produtos/listagemProdutos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Produtos/listagemProdutos.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Servicos/detalhesServicos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Servicos/detalhesServicos.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,19 +156,20 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="PHP" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Clientes" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Jeronimo\Documents\projetoOficina\resources\views\Clientes" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Jeronimo\Documents\projetoOficina\app" />
       <recent name="C:\Users\Jeronimo\Documents\projetoOficina\app\Models" />
       <recent name="C:\Users\Jeronimo\Documents\projetoOficina\resources\views\Servicos" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jeronimo\Documents\projetoOficina\resources\views\Clientes" />
     </key>
   </component>
   <component name="RunManager">
@@ -220,7 +213,8 @@
       <workItem from="1605659217278" duration="3692000" />
       <workItem from="1605729920184" duration="609000" />
       <workItem from="1605731303039" duration="182000" />
-      <workItem from="1605740648589" duration="1700000" />
+      <workItem from="1605740648589" duration="2321000" />
+      <workItem from="1605799477002" duration="7330000" />
     </task>
     <servers />
   </component>
@@ -256,14 +250,18 @@
       <screen x="0" y="0" width="1474" height="808" />
     </state>
     <state x="246" y="49" key="SettingsEditor/0.0.1474.808@0.0.1474.808" timestamp="1605314567636" />
+    <state x="349" y="41" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605743147474">
+      <screen x="0" y="0" width="1474" height="808" />
+    </state>
+    <state x="349" y="41" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1474.808@0.0.1474.808" timestamp="1605743147474" />
     <state x="394" y="183" key="run.anything.popup" timestamp="1605557459038">
       <screen x="0" y="0" width="1474" height="808" />
     </state>
     <state x="394" y="183" key="run.anything.popup/0.0.1474.808@0.0.1474.808" timestamp="1605557459038" />
-    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup" timestamp="1605743076172">
+    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup" timestamp="1605806032705">
       <screen x="0" y="0" width="1474" height="808" />
     </state>
-    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup/0.0.1474.808@0.0.1474.808" timestamp="1605743076172" />
+    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup/0.0.1474.808@0.0.1474.808" timestamp="1605806032705" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
