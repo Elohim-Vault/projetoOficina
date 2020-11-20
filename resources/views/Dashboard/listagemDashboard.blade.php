@@ -4,14 +4,18 @@
     <div class="card ml-3 mb-3 mr-3" style="width: 15rem;">
         <div class="card-body">
             <h5 class="card-title">Ganho</h5>
-            <h3 class="text-center font-weight-bold">2500</h3>
+            @if($total > 0)
+                <h3 class="text-center text-success font-weight-bold">R$ {{$total}}</h3>
+            @else
+                <h3 class="text-center text-danger font-weight-bold"> - R${{$total}}</h3>
+            @endif
         </div>
     </div>
 
     <div class="card mb-3 mr-3" style="width: 15rem;">
         <div class="card-body">
             <h5 class="card-title">Produtos em falta</h5>
-            <h3 class="text-center font-weight-bold">2500</h3>
+            <h3 class="text-center font-weight-bold">{{ count($produtosEmFalta) }}</h3>
         </div>
     </div>
 
@@ -42,11 +46,24 @@
             @else
                 <tr class="text-danger">
                     <th scope="row">{{ $registro->IdbalancoFinanceiro }}</th>
-                    <td>- R${{ $registro->Valor }}</td>
+                    <td>- R${{ $registro->Valor * - 1 }}</td>
                     <td><a href="{{ route('produtos.index', ['search' => $registro->Produto, 'atributoProduto' => 'Codigo']) }}">Compra de {{ $registro->produto->Nomeproduto }}</td>
                 </tr>
             @endif
         @endforeach
         </tbody>
     </table>
+
+
+    @if($registros->previousPageUrl())
+        <a class="left-arrow" href="{{ $registros->previousPageUrl() }}">
+            <i class="fas fa-angle-left"></i>
+        </a>
+    @endif
+
+    @if($registros->nextPageUrl())
+        <a class="right-arrow" href="{{ $registros->nextPageUrl() }}">
+            <i class="fas fa-angle-right"></i>
+        </a>
+    @endif
 @endsection

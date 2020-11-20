@@ -4,6 +4,7 @@ namespace App\Repositories;
 use App\balancoFinanceiro;
 use App\produtoServico;
 use App\Servico;
+use Carbon\Traits\Date;
 
 class BalancoFinanceiroRepository
 {
@@ -27,7 +28,7 @@ class BalancoFinanceiroRepository
 
     public function paginate(int $quantidadePorPaginas)
     {
-        return $this->model->paginate($quantidadePorPaginas);
+        return $this->model->Paginate($quantidadePorPaginas);
     }
 
     public function newProfit(Servico $servico, float $valor)
@@ -47,6 +48,20 @@ class BalancoFinanceiroRepository
     }
 
     public function newLoss(array $data)
+    {
+
+    }
+
+    public function sumYearly(){
+        return $this->model->sum('Valor');
+    }
+
+    public function sumMontly(){
+
+
+    }
+
+    public function sumWeekly()
     {
 
     }

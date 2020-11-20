@@ -42,11 +42,13 @@
                     </thead>
                     <tbody>
                     @foreach($produtos as $produto)
-                    <tr>
-                        <td scope="row">{{ $produto->Codigo }}</td>
-                        <td>{{ $produto->Nomeproduto }}</td>
-                        <td><input type="number" min="0" name="produtos[{{ $produto->Codigo }}]" max="{{ $produto->Quantidade }}"></td>
-                    </tr>
+                        @if($produto->Quantidade > 0 )
+                            <tr>
+                                <td scope="row">{{ $produto->Codigo }}</td>
+                                <td>{{ $produto->Nomeproduto }}</td>
+                                <td><input type="number" min="0" name="produtos[{{ $produto->Codigo }}]" max="{{ $produto->Quantidade }}"></td>
+                            </tr>
+                        @endif
                     @endforeach
                     </tbody>
                 </table>

@@ -62,11 +62,11 @@
     </table>
 
     @if($clientes->previousPageUrl())
-        <a href="{{ $servicos->previousPageUrl() }}"><i class="left-arrow" class="fas fa-angle-left"></i></a>
+        <a href="{{ $clientes->previousPageUrl() }}"><i class="left-arrow" class="fas fa-angle-left"></i></a>
     @endif
 
     @if($clientes->nextPageUrl())
-        <a href="{{ $servicos->nextPageUrl() }}"><i class="right-arrow" class="fas fa-angle-right"></i></a>
+        <a href="{{ $clientes->nextPageUrl() }}"><i class="right-arrow" class="fas fa-angle-right"></i></a>
     @endif
 
     <script>

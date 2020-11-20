@@ -38,6 +38,10 @@ class ProdutoRepository
         return $this->model->where($atributoProduto, 'like', '%' .$produto. '%')->get();
     }
 
+    public function missingProducts(){
+        return $this->model->where('Quantidade', '<', 1)->get();
+    }
+
     public function update($id, array $data)
     {
         return $this->model->find($id)->update($data);

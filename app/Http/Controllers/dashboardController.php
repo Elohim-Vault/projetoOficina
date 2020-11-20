@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\balancoFinanceiro;
+use App\Produto;
+use App\Repositories\ProdutoRepository;
 use Illuminate\Http\Request;
+use App\Repositories\BalancoFinanceiroRepository;
 
 class dashboardController extends Controller
 {
     private $model;
+    private $produto;
 
-    public function __construct(balancoFinanceiro $model)
+    public function __construct()
     {
-        $this->model = $model;
+        $this->model = new balancoFinanceiroRepository(new balancoFinanceiro());
+        $this->produto = new ProdutoRepository(new Produto());
     }
 
     /**
@@ -21,8 +26,11 @@ class dashboardController extends Controller
      */
     public function index()
     {
+
         return view('Dashboard.listagemDashboard', [
             'registros' => $this->model->paginate(8),
+            'total' => $this->model->sumYearly(),
+            'produtosEmFalta' => $this->produto->missingProducts()
         ]);
     }
 
