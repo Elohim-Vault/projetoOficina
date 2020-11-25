@@ -87,6 +87,19 @@
                     </li>
                 </ul>
             </li>
+            <li >
+                <div>
+                    <a href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">
+                        <i class="fas fa-door-open"></i> Sair
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+            </li>
         </ul>
 
     </nav>

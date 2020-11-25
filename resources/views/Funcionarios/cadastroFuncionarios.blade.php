@@ -86,13 +86,6 @@
             <input type="password" class="form-control" id="senha" name="senha">
         </div>
         <button type="submit" class="btn btn-primary">Cadastrar</button>
-
-
-
-
-
-
-
     </form>
 
 @endsection

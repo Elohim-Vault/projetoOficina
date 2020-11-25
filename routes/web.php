@@ -21,62 +21,64 @@ use App\Http\Controllers\dashboardController;
 |
 */
 
+Route::middleware(['auth'])->group(function (){
 
-Route::get('/', [dashboardController::class, 'index'])->name('dashboard');
+    Route::get('/', [dashboardController::class, 'index'])->name('dashboard');
 
-// Serviços
-Route::prefix('servicos')->group(function (){
-    Route::get('', [servicoController::class, 'index'])->name('servicos.index');
-    Route::get('cadastro', [servicoController::class, 'create'])->name('servicos.cadastro');
-    Route::post('armazenar', [servicoController::class, 'store'])->name('servicos.armazenar');
-    Route::get('{servico}', [servicoController::class, 'show'])->name('servicos.detalhes');
-    Route::get('editar/{id}', [servicoController::class, 'edit'])->name('servicos.editar');
-    Route::post('atualizar/{id}', [servicoController::class, 'update'])->name('servicos.atualizar');
-    Route::get('deletar/{id}', [servicoController::class, 'destroy'])->name('servicos.deletar');
-    Route::get('concluir/{id}', [servicoController::class, 'done'])->name('servicos.concluir');
+    // Serviços
+    Route::prefix('servicos')->group(function (){
+        Route::get('', [servicoController::class, 'index'])->name('servicos.index');
+        Route::get('cadastro', [servicoController::class, 'create'])->name('servicos.cadastro');
+        Route::post('armazenar', [servicoController::class, 'store'])->name('servicos.armazenar');
+        Route::get('{servico}', [servicoController::class, 'show'])->name('servicos.detalhes');
+        Route::get('editar/{id}', [servicoController::class, 'edit'])->name('servicos.editar');
+        Route::post('atualizar/{id}', [servicoController::class, 'update'])->name('servicos.atualizar');
+        Route::get('deletar/{id}', [servicoController::class, 'destroy'])->name('servicos.deletar');
+        Route::get('concluir/{id}', [servicoController::class, 'done'])->name('servicos.concluir');
+    });
+
+    // Clientes
+    Route::prefix('clientes')->group(function (){
+        Route::get('', [clienteController::class, 'index'])->name('clientes.index');
+        Route::get('/cadastro/fisico', [clienteController::class, 'createFisico'])->name('clientes.cadastroFisico');
+        Route::get('/cadastro/juridico', [clienteController::class, 'createJuridico'])->name('clientes.cadastroJuridico');
+        Route::post('/armazenar', [clienteController::class, 'store'])->name('clientes.armazenar');
+        Route::delete('/deletar/{id}', [clienteController::class, 'destroy'])->name('clientes.deletar');
+        Route::get('/{id}', [clienteController::class, 'show'])->name('clientes.detalhes');
+    });
+
+    // Funcionários
+    Route::prefix('funcionarios')->group(function (){
+        Route::get('', [FuncionarioController::class, 'index'])->name('funcionarios.index');
+        Route::get('cadastro', [FuncionarioController::class, 'create'])->name('funcionarios.cadastro');
+        Route::post('armazenar', [FuncionarioController::class, 'store'])->name('funcionarios.armazenar');
+        Route::get('{funcionario}', [FuncionarioController::class, 'show'])->name('funcionarios.detalhes');
+    });
+
+    // Produtos
+    Route::prefix('produtos')->group(function (){
+        Route::get('', [ProdutoController::class, 'index'])->name('produtos.index');
+        Route::get('cadastro', [ProdutoController::class, 'create'])->name('produtos.cadastro');
+        Route::get('search', [ProdutoController::class, 'search'])->name('produtos.pesquisar');
+        Route::post('armazenar', [ProdutoController::class, 'store'])->name('produtos.armazenar');
+    });
+
+    // Carros
+    Route::prefix('carros')->group(function (){
+        Route::get('cadastro/{cliente}', [CarroController::class, 'create'])->name('carros.cadastro');
+        Route::post('armazenar', [CarroController::class, 'store'])->name('carros.armazenar');
+    });
+
+    // Holerite
+    Route::prefix('holerite')->group(function (){
+        Route::get('pagamentos', [HoleriteController::class, 'index'])->name('holerite.pagamentos');
+        Route::get('pagamentos/edicao/{pagamento}', [HoleriteController::class, 'edit'])->name('holerite.editarPagamento');
+        Route::get('pagamentos/computar', [HoleriteController::class, 'computarPagamento'])->name('holerite.computarPagamento');
+        Route::put('pagamentos/atualizar/{pagamento}', [HoleriteController::class, 'update'])->name('holerite.atualizarPagamento');
+    });
+
 });
 
-// Clientes
-Route::prefix('clientes')->group(function (){
-    Route::get('', [clienteController::class, 'index'])->name('clientes.index');
-    Route::get('/cadastro/fisico', [clienteController::class, 'createFisico'])->name('clientes.cadastroFisico');
-    Route::get('/cadastro/juridico', [clienteController::class, 'createJuridico'])->name('clientes.cadastroJuridico');
-    Route::post('/armazenar', [clienteController::class, 'store'])->name('clientes.armazenar');
-    Route::delete('/deletar/{id}', [clienteController::class, 'destroy'])->name('clientes.deletar');
-    Route::get('/{id}', [clienteController::class, 'show'])->name('clientes.detalhes');
-});
-
-// Funcionários
-Route::prefix('funcionarios')->group(function (){
-    Route::get('', [FuncionarioController::class, 'index'])->name('funcionarios.index');
-    Route::get('cadastro', [FuncionarioController::class, 'create'])->name('funcionarios.cadastro');
-    Route::post('armazenar', [FuncionarioController::class, 'store'])->name('funcionarios.armazenar');
-    Route::get('{funcionario}', [FuncionarioController::class, 'show'])->name('funcionarios.detalhes');
-});
-
-// Produtos
-Route::prefix('produtos')->group(function (){
-    Route::get('', [ProdutoController::class, 'index'])->name('produtos.index');
-    Route::get('cadastro', [ProdutoController::class, 'create'])->name('produtos.cadastro');
-    Route::get('search', [ProdutoController::class, 'search'])->name('produtos.pesquisar');
-    Route::post('armazenar', [ProdutoController::class, 'store'])->name('produtos.armazenar');
-});
-
-// Carros
-Route::prefix('carros')->group(function (){
-    Route::get('cadastro/{cliente}', [CarroController::class, 'create'])->name('carros.cadastro');
-    Route::post('armazenar', [CarroController::class, 'store'])->name('carros.armazenar');
-});
-
-// Holerite
-Route::prefix('holerite')->group(function (){
-    Route::get('pagamentos', [HoleriteController::class, 'index'])->name('holerite.pagamentos');
-    Route::get('pagamentos/edicao/{pagamento}', [HoleriteController::class, 'edit'])->name('holerite.editarPagamento');
-    Route::get('pagamentos/computar', [HoleriteController::class, 'computarPagamento'])->name('holerite.computarPagamento');
-    Route::put('pagamentos/atualizar/{pagamento}', [HoleriteController::class, 'update'])->name('holerite.atualizarPagamento');
-});
-
-
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');

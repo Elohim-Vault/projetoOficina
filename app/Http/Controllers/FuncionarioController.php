@@ -6,6 +6,7 @@ use App\Bairro;
 use App\Cidade;
 use App\Endereco;
 use App\Funcionario;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Repositories\BairroRepository;
 use App\Repositories\CidadeRepository;
 use App\Repositories\EnderecoRepository;
@@ -13,6 +14,8 @@ use App\Repositories\salarioRepository;
 use App\SalarioBase;
 use Illuminate\Http\Request;
 use App\Repositories\FuncionarioRepository;
+use Illuminate\Support\Facades\Auth;
+
 class FuncionarioController extends Controller
 {
     private $model;
@@ -52,7 +55,7 @@ class FuncionarioController extends Controller
         $endereco = new EnderecoRepository(new Endereco());
         $bairro = new BairroRepository(new Bairro());
         $cidade = new CidadeRepository(new Cidade());
-        $salario = new salarioRepository(new SalarioBase());
+        $registerController = new RegisterController();
 
         $idBairro = $bairro->firstOrNew([
            'Bairro' => $request->bairro
@@ -82,10 +85,21 @@ class FuncionarioController extends Controller
             'IdEndereco' => $idEndereco,
         ])->IdFuncionario;
 
+
+
+        $registerController->create([
+            'email' => $request->email,
+           'IdFuncionario' => $idFuncionario,
+           'password' => $request->senha
+        ]);
+
         return redirect(route('funcionarios.index'));
 
     }
 
+    public function criaUsuario($data){
+
+    }
     /**
      * Display the specified resource.
      *
