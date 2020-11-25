@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/estilo.css') }}">
 
+
     {{--    Font awesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
@@ -68,6 +69,9 @@
                     </li>
                     <li>
                         <a href="{{ route('funcionarios.cadastro') }}">Cadastrar</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('holerite.pagamentos') }}">Historico de pagamentos</a>
                     </li>
                 </ul>
             </li>

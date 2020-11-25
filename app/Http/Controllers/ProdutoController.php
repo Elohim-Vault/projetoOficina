@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\balancoFinanceiro;
 use App\Produto;
+use App\Repositories\BalancoFinanceiroRepository;
 use App\Repositories\ProdutoRepository;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
@@ -49,10 +51,17 @@ class ProdutoController extends Controller
         $produtoExiste = $this->model->find($request->Codigo);
 
         if($produtoExiste){
+            $balancoFinanceiro = new BalancoFinanceiroRepository(new balancoFinanceiro());
+
             $quantidade = $produtoExiste->Quantidade;
             $this->model->update($request->Codigo, [
                 'Valor' => $request->Valor,
                 'Quantidade' => $quantidade + $request->Quantidade
+            ]);
+
+            $balancoFinanceiro->newLoss([
+                'Valor' => $request->Valor * $request->Quantidade,
+                'Produto' => $request->Codigo
             ]);
         }else{
             $this->model->create($request->all());
@@ -74,7 +83,6 @@ class ProdutoController extends Controller
 
     public function search(Request $request)
     {
-        dd(Input::all());
         if($request->search != ''){
             $produtos = $this->model->search($request->atributoProduto, $request->search);
         }else{

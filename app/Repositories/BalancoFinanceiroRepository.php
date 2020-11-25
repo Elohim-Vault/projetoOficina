@@ -49,21 +49,30 @@ class BalancoFinanceiroRepository
 
     public function newLoss(array $data)
     {
+        return $this->model->create($data);
 
     }
 
     public function sumYearly(){
-        return $this->model->sum('Valor');
+        $year = date('Y');
+        return $this->model->whereRaw('YEAR(Data) = '. $year)->sum('Valor');
     }
 
     public function sumMontly(){
+        $month = date('m');
+        $year = date('Y');
 
-
+        return $this->model->whereRaw('MONTH(Data) = '. $month)
+            ->whereRaw('YEAR(Data) = '. $year)
+            ->sum('Valor');
     }
 
     public function sumWeekly()
     {
+        $dateNow = \date('Y-m-d');
+        $dateFuture = \date('Y-m-d', strtotime('+1 days'));
 
+        return $this->model->whereRaw('Data BETWEEN '. "'".$dateNow. "'" .' and '. "'".$dateFuture. "'")->sum('Valor');
     }
 
     public function update(array $data, $id)

@@ -1,16 +1,45 @@
 @extends('header')
 @section('conteudo')
-<div class="row">
-    <div class="card ml-3 mb-3 mr-3" style="width: 15rem;">
+<div class="row" id="cards">
+    <div class="card ml-3 mb-3 mr-3" style="width: 21rem;">
         <div class="card-body">
-            <h5 class="card-title">Ganho</h5>
-            @if($total > 0)
-                <h3 class="text-center text-success font-weight-bold">R$ {{$total}}</h3>
+            <h5 class="card-title">Ganho anual</h5>
+            @if($totalAnual - $salarioAnual > 0)
+                <h3 class="text-center text-success font-weight-bold">R$ {{$totalAnual - $salarioAnual}}</h3>
+            @elseif($totalAnual - $salarioAnual < 0)
+                <h3 class="text-center text-danger font-weight-bold"> - R${{ ($totalAnual - $salarioAnual) * - 1}}</h3>
             @else
-                <h3 class="text-center text-danger font-weight-bold"> - R${{$total}}</h3>
+                <h3 class="text-center font-weight-bold">R${{$totalAnual}}</h3>
             @endif
         </div>
     </div>
+
+    <div class="card mb-3 mr-3" style="width: 21rem;">
+        <div class="card-body">
+            <h5 class="card-title">Ganho mensal</h5>
+            @if($totalMensal - $salarioMensal > 0)
+                <h3 class="text-center text-success font-weight-bold">R$ {{$totalMensal - $salarioMensal}}</h3>
+            @elseif($totalMensal - $salarioMensal < 0)
+                <h3 class="text-center text-danger font-weight-bold"> - R${{ ($totalMensal - $salarioMensal) * - 1}} </h3>
+            @else
+                <h3 class="text-center font-weight-bold">R${{$totalMensal - $salarioMensal}}</h3>
+            @endif
+        </div>
+    </div>
+
+    <div class="card mb-3 mr-3" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Ganho diário</h5>
+            @if($totalSemanal > 0)
+                <h3 class="text-center text-success font-weight-bold">R$ {{$totalSemanal}}</h3>
+            @elseif($totalSemanal < 0)
+                <h3 class="text-center text-danger font-weight-bold"> - R${{$totalSemanal}}</h3>
+            @else
+                <h3 class="text-center font-weight-bold">R${{$totalSemanal}}</h3>
+            @endif
+        </div>
+    </div>
+
 
     <div class="card mb-3 mr-3" style="width: 15rem;">
         <div class="card-body">
@@ -19,14 +48,8 @@
         </div>
     </div>
 
-    <div class="card mb-3 mr-3" style="width: 15rem;">
-        <div class="card-body">
-            <h5 class="card-title">Ganho</h5>
-            <h3 class="text-center font-weight-bold">2500</h3>
-        </div>
-    </div>
 </div>
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped ml-5">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -35,8 +58,12 @@
         </tr>
         </thead>
         <tbody>
+        <tr class="text-danger">
+            <th scope="row">#</th>
+            <td>- R${{ $salarioMensal }}</td>
+            <td><a href="{{ route('holerite.pagamentos') }}">Pagamentos de salário</a></td>
+        </tr>
         @foreach($registros as $registro)
-
             @if($registro->servico)
                 <tr class="text-success">
                     <th scope="row">{{ $registro->IdbalancoFinanceiro }}</th>
@@ -47,7 +74,7 @@
                 <tr class="text-danger">
                     <th scope="row">{{ $registro->IdbalancoFinanceiro }}</th>
                     <td>- R${{ $registro->Valor * - 1 }}</td>
-                    <td><a href="{{ route('produtos.index', ['search' => $registro->Produto, 'atributoProduto' => 'Codigo']) }}">Compra de {{ $registro->produto->Nomeproduto }}</td>
+                    <td>Compra de {{ $registro->produto->Nomeproduto }}</td>
                 </tr>
             @endif
         @endforeach

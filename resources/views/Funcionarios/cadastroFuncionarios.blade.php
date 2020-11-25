@@ -66,14 +66,14 @@
                 <label for="appt">Inicio do turno:</label><br>
 
                 <input type="time" id="TurnoInicio" name="TurnoInicio"
-                       min="09:00" max="18:00" required>
+                       min="06:00" max="22:00" required>
             </div>
 
             <div class="form-group col-md-2">
                 <label for="appt">Fim do turno:</label><br>
 
                 <input type="time" id="TurnoFim" name="TurnoFim"
-                       min="09:00" max="18:00" required>
+                       min="06:00" max="22:00" required>
             </div>
         </div>
 

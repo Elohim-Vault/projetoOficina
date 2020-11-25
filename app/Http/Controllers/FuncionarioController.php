@@ -78,13 +78,9 @@ class FuncionarioController extends Controller
             'Funcao' => $request->input('funcao'),
             'TurnoInicio' => $request->input('TurnoInicio'),
             'TurnoFim' => $request->input('TurnoFim'),
-            'IdEndereco' => $idEndereco
+            'salario' => $request->salario,
+            'IdEndereco' => $idEndereco,
         ])->IdFuncionario;
-
-        $salario->create([
-            'IdFuncionario' => $idFuncionario,
-            'Salario' => $request->salario
-        ]);
 
         return redirect(route('funcionarios.index'));
 

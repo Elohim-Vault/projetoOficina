@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\balancoFinanceiro;
+use App\Holerite;
 use App\Produto;
+use App\Repositories\HoleriteRepository;
 use App\Repositories\ProdutoRepository;
 use Illuminate\Http\Request;
 use App\Repositories\BalancoFinanceiroRepository;
@@ -16,7 +18,7 @@ class dashboardController extends Controller
     public function __construct()
     {
         $this->model = new balancoFinanceiroRepository(new balancoFinanceiro());
-        $this->produto = new ProdutoRepository(new Produto());
+
     }
 
     /**
@@ -26,11 +28,17 @@ class dashboardController extends Controller
      */
     public function index()
     {
+        $holeriteRepository = new HoleriteRepository(new Holerite());
+        $produtoRepository = new ProdutoRepository(new Produto());
 
         return view('Dashboard.listagemDashboard', [
             'registros' => $this->model->paginate(8),
-            'total' => $this->model->sumYearly(),
-            'produtosEmFalta' => $this->produto->missingProducts()
+            'totalAnual' => $this->model->sumYearly(),
+            'totalMensal' => $this->model->sumMontly(),
+            'totalSemanal' => $this->model->sumWeekly(),
+            'produtosEmFalta' => $produtoRepository->missingProducts(),
+            'salarioMensal' => $holeriteRepository->somarPagamentosMensal(),
+            'salarioAnual' => $holeriteRepository->somarPagamentosAnual()
         ]);
     }
 

@@ -11,7 +11,7 @@ class Funcionario extends Model
     public $primaryKey = 'IdFuncionario';
     public $timestamps = false;
 
-    protected $fillable = ['IdFuncionario', 'Cpf', 'NomeFuncionario', 'Funcao', 'TurnoInicio', 'TurnoFim', 'RG', 'IdEndereco'];
+    protected $fillable = ['IdFuncionario', 'Cpf', 'NomeFuncionario', 'Funcao', 'TurnoInicio', 'TurnoFim', 'RG', 'IdEndereco', 'salario'];
 
     public function SalarioBase(){
         return $this->belongsTo(SalarioBase::class, 'IdFuncionario', 'IdFuncionario');
@@ -23,5 +23,9 @@ class Funcionario extends Model
 
     public function Servicos(){
         return $this->belongsToMany(Funcionario::class, 'servicosfuncionarios', 'IdFuncionario', 'IdServico');
+    }
+
+    public function Salarios(){
+        return $this->hasMany(Holerite::class, 'idFuncionario', 'IdFuncionario');
     }
 }

@@ -4,6 +4,10 @@
     margin-top: 20px;
 }
 
+#cards{
+    width: 1800px;
+}
+
 .alert{
     margin-left: 70px;
 }
@@ -211,3 +215,5 @@ a[data-toggle="collapse"] {
 }
 
 /* endSidebar */
+
+

@@ -59,14 +59,14 @@
                 <label for="appt">Inicio do turno:</label><br>
 
                 <input type="time" id="TurnoInicio" name="TurnoInicio"
-                       min="09:00" max="18:00" required value="{{ $funcionario->TurnoInicio }}">
+                        required value="{{ $funcionario->TurnoInicio }}">
             </div>
 
             <div class="form-group col-md-1.5">
                 <label for="appt">Fim do turno:</label><br>
 
                 <input type="time" id="TurnoFim" name="TurnoFim"
-                       min="09:00" max="18:00" value="{{ $funcionario->TurnoFim }}">
+                       value="{{ $funcionario->TurnoFim }}">
             </div>
         </fieldset>
     </form>

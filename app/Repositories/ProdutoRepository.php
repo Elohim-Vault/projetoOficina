@@ -30,7 +30,6 @@ class ProdutoRepository
 
     public function create(array $data)
     {
-
         return $this->model->create($data);
     }
 

@@ -27,6 +27,7 @@
         <tbody>
         @foreach ($servicos as $servico)
         <tr>
+
             <th scope="row">{{ $servico->IdServico }}</th>
             <td>{{ $servico->Tiposervico }}</td>
             <td>{{ $servico->StatusServ }}</td>
@@ -43,11 +44,15 @@
         </tbody>
     </table>
     @if($servicos->previousPageUrl())
-        <a href="{{ $servicos->previousPageUrl() }}"><i class="left-arrow" class="fas fa-angle-left"></i></a>
+        <a class="left-arrow" href="{{ $servicos->previousPageUrl() }}">
+            <i class="fas fa-angle-left"></i>
+        </a>
     @endif
 
     @if($servicos->nextPageUrl())
-        <a href="{{ $servicos->nextPageUrl() }}"><i class="right-arrow" class="fas fa-angle-right"></i></a>
+        <a class="right-arrow" href="{{ $servicos->nextPageUrl() }}">
+            <i class="fas fa-angle-right"></i>
+        </a>
     @endif
 
 

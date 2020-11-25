@@ -6,8 +6,10 @@ use App\Carro;
 use App\Funcionario;
 use App\Produto;
 use App\produtoServico;
+use App\Servico;
+use App;
 
-
+use App\Services\Pdf as PdfDownloader;
 use App\Repositories\BalancoFinanceiroRepository;
 use App\Repositories\CarroRepository;
 use App\Repositories\ServicosFuncionariosRepository;
@@ -17,17 +19,19 @@ use App\Repositories\ServicoRepository;
 use App\Repositories\ProdutoRepository;
 use App\Repositories\FuncionarioRepository;
 
-
+use Barryvdh\DomPDF\Facade as PDF;
+use Dompdf\Dompdf;
 use Dotenv\Validator;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
-use App\Servico;
+use SebastianBergmann\CodeCoverage\TestFixture\C;
+
 
 class servicoController extends Controller
 {
 
     private $model;
-    private $modelProduto;
+    private $modelProdutos;
     private $modelFuncionarios;
     private $modelCarros;
 
@@ -52,6 +56,8 @@ class servicoController extends Controller
      */
     public function create()
     {
+//        $pdfHandler = new Pdf(new Dompdf());
+//        $pdfHandler->criaPdf();
         return view('Servicos.cadastroServicos', [
             'funcionarios' => $this->modelFuncionarios->findAll(),
             'carros' => $this->modelCarros->findAll(),
@@ -74,31 +80,65 @@ class servicoController extends Controller
 //        ]);
 
 
-        $balancoFinanceiro = new BalancoFinanceiroRepository(new balancoFinanceiro());
+
+        if($request->option == 'false' or $request->option == null)
+        {
+            $balancoFinanceiro = new BalancoFinanceiroRepository(new balancoFinanceiro());
 
 
 
-        $servicoInserido = $this->model->create([
+            $servicoInserido = $this->model->create([
                 'Carro' => $request->input('Carro'),
                 "Tiposervico" => $request->input('Tiposervico'),
                 "StatusServ" => 'Em andamento',
                 "DataChegada" => $request->input('DataChegada'),
                 "PrevisãoSaida" => $request->input('PrevisãoSaida')
-        ]);
+            ]);
 
-        $servicoFuncionarios = new ServicosFuncionariosRepository(new servicosFuncionarios());
+            $servicoFuncionarios = new ServicosFuncionariosRepository(new servicosFuncionarios());
 
 
-        $servicoFuncionarios->create($request->input('IdFuncionario'), $servicoInserido->IdServico);
+            $servicoFuncionarios->create($request->input('IdFuncionario'), $servicoInserido->IdServico);
 
-        if($request->input('produtos'))
-        {
-            $servicoProduto = new servicosProdutosRepository(new produtoServico());
-            $servicoProduto->create($servicoInserido->IdServico, $request->input('produtos'));
+            if($request->input('produtos'))
+            {
+                $servicoProduto = new servicosProdutosRepository(new produtoServico());
+                $servicoProduto->create($servicoInserido->IdServico, $request->input('produtos'));
+            }
+
+            $balancoFinanceiro->newProfit($servicoInserido, $request->input('valor'));
         }
-        $balancoFinanceiro->newProfit($servicoInserido, $request->input('valor'));
 
-        return redirect(route('servicos.index'));
+        // Criando o PDF
+        if($request->option == 'true' or $request->option == null)
+        {
+            $carroRepository = new CarroRepository(new Carro());
+            $produtos = array();
+            $total = 0;
+            foreach($request->produtos as $key => $produto)
+            {
+                if($produto != Null)
+                {
+                    $collection = collect($this->modelProdutos->find($key));
+                    $total += $collection->get('Valor');
+                    $produtos[$key] = $collection->merge(['quantidadeUsada' => $produto]);
+                }
+            }
+
+            $nomeCliente = $carroRepository->find($request->Carro)->proprietario->Nome;
+
+            return PDF::loadView('Servicos.orcamentoServico', [
+                'servico' => $request->all(),
+                'produtos' => $produtos,
+                'somaProdutos' => $total,
+                'cliente' => $nomeCliente
+
+            ])->stream();
+
+
+        }
+
+
     }
 
 

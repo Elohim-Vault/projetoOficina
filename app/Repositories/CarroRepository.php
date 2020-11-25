@@ -20,7 +20,7 @@ class CarroRepository
 
     public function find($id)
     {
-        return $this->model->all();
+        return $this->model->find($id);
     }
 
     public function paginate(int $quantidadePorPaginas)

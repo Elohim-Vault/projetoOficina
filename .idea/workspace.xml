@@ -23,14 +23,76 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb7a18fe-5964-455b-9a00-97589507e5e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/Holerite/editarPagamento.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Holerite/pagamentosFuncionarios.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Servicos/orcamentoServico.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Courier-Bold.afm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Courier-BoldOblique.afm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Courier-Oblique.afm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Courier.afm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSans-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSans-Bold.ufm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSans-BoldOblique.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSans-BoldOblique.ufm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSans-Oblique.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSans-Oblique.ufm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSans.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSans.ufm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSansMono-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSansMono-Bold.ufm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSansMono-BoldOblique.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSansMono-BoldOblique.ufm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSansMono-Oblique.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSansMono-Oblique.ufm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSansMono.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSansMono.ufm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSerif-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSerif-Bold.ufm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSerif-BoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSerif-BoldItalic.ufm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSerif-Italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSerif-Italic.ufm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSerif.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSerif.ufm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Helvetica-Bold.afm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Helvetica-BoldOblique.afm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Helvetica-Oblique.afm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Helvetica.afm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Symbol.afm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Times-Bold.afm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Times-Bold.afm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Times-BoldItalic.afm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Times-Italic.afm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Times-Roman.afm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/Times-Roman.afm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/ZapfDingbats.afm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/dompdf_font_family_cache.dist.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/fonts/mustRead.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/projetoOficina.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projetoOficina.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Funcionario.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Funcionario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FuncionarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FuncionarioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProdutoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProdutoController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/dashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/dashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/servicoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/servicoController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/BalancoFinanceiroRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BalancoFinanceiroRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/CarroRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/CarroRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/ProdutoRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ProdutoRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Clientes/listagemClientes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Clientes/listagemClientes.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/salarioRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/HoleriteRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/estilo.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/estilo.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Dashboard/listagemDashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Dashboard/listagemDashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Funcionarios/cadastroFuncionarios.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Funcionarios/cadastroFuncionarios.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Funcionarios/detalhesFuncionarios.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Funcionarios/detalhesFuncionarios.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Servicos/cadastroServicos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Servicos/cadastroServicos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Servicos/listagemServicos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Servicos/listagemServicos.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +209,12 @@
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
       <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf" />
+      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jsuT05fo8ZGNvFZKENbt5D5nOi" />
@@ -157,21 +225,27 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="PHP" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Clientes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/database/migrations" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Jeronimo\Documents\projetoOficina\resources\views\Clientes" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jeronimo\Documents\projetoOficina\resources\views\Holerite" />
+      <recent name="C:\Users\Jeronimo\Documents\projetoOficina\resources\views\Funcionarios" />
+      <recent name="C:\Users\Jeronimo\Documents\projetoOficina\resources\views\Servicos" />
       <recent name="C:\Users\Jeronimo\Documents\projetoOficina\app" />
       <recent name="C:\Users\Jeronimo\Documents\projetoOficina\app\Models" />
-      <recent name="C:\Users\Jeronimo\Documents\projetoOficina\resources\views\Servicos" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jeronimo\Documents\projetoOficina\database\migrations" />
+      <recent name="C:\Users\Jeronimo\Documents\projetoOficina\app\Repositories" />
+      <recent name="C:\Users\Jeronimo\Documents\projetoOficina\storage" />
+      <recent name="C:\Users\Jeronimo\Documents\projetoOficina\resources\views\Clientes" />
     </key>
   </component>
   <component name="RunManager">
@@ -217,7 +291,12 @@
       <workItem from="1605731303039" duration="182000" />
       <workItem from="1605740648589" duration="2321000" />
       <workItem from="1605799477002" duration="15491000" />
-      <workItem from="1605886335529" duration="8974000" />
+      <workItem from="1605886335529" duration="9200000" />
+      <workItem from="1605997572849" duration="4814000" />
+      <workItem from="1606141064271" duration="16801000" />
+      <workItem from="1606226676412" duration="13530000" />
+      <workItem from="1606312299181" duration="165000" />
+      <workItem from="1606313993464" duration="7036000" />
     </task>
     <servers />
   </component>
@@ -237,10 +316,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="498" y="206" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605551490531">
+    <state x="498" y="206" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606142258248">
       <screen x="0" y="0" width="1474" height="808" />
     </state>
-    <state x="498" y="206" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1474.808@0.0.1474.808" timestamp="1605551490531" />
+    <state x="498" y="206" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1474.808@0.0.1474.808" timestamp="1606142258248" />
     <state x="455" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605038445943">
       <screen x="0" y="0" width="1474" height="808" />
     </state>
@@ -249,22 +328,30 @@
       <screen x="0" y="0" width="1474" height="808" />
     </state>
     <state x="468" y="159" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1474.808@0.0.1474.808" timestamp="1605645581789" />
-    <state x="246" y="49" key="SettingsEditor" timestamp="1605314567636">
+    <state x="246" y="49" key="SettingsEditor" timestamp="1606314106795">
       <screen x="0" y="0" width="1474" height="808" />
     </state>
-    <state x="246" y="49" key="SettingsEditor/0.0.1474.808@0.0.1474.808" timestamp="1605314567636" />
+    <state x="246" y="49" key="SettingsEditor/0.0.1474.808@0.0.1474.808" timestamp="1606314106795" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1606240226344">
+      <screen x="0" y="0" width="1474" height="808" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1474.808@0.0.1474.808" timestamp="1606240226344" />
     <state x="349" y="41" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605743147474">
       <screen x="0" y="0" width="1474" height="808" />
     </state>
     <state x="349" y="41" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1474.808@0.0.1474.808" timestamp="1605743147474" />
-    <state x="394" y="183" key="run.anything.popup" timestamp="1605557459038">
+    <state x="394" y="183" key="run.anything.popup" timestamp="1606149645333">
       <screen x="0" y="0" width="1474" height="808" />
     </state>
-    <state x="394" y="183" key="run.anything.popup/0.0.1474.808@0.0.1474.808" timestamp="1605557459038" />
-    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup" timestamp="1605903641275">
+    <state x="394" y="183" key="run.anything.popup/0.0.1474.808@0.0.1474.808" timestamp="1606149645333" />
+    <state x="530" y="263" key="scopes" timestamp="1606227718696">
       <screen x="0" y="0" width="1474" height="808" />
     </state>
-    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup/0.0.1474.808@0.0.1474.808" timestamp="1605903641275" />
+    <state x="530" y="263" key="scopes/0.0.1474.808@0.0.1474.808" timestamp="1606227718696" />
+    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup" timestamp="1606321247658">
+      <screen x="0" y="0" width="1474" height="808" />
+    </state>
+    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup/0.0.1474.808@0.0.1474.808" timestamp="1606321247658" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

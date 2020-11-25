@@ -2,7 +2,27 @@
 @section('conteudo')
 
 
+
+
     <form method="post" id="formServicos" action="{{ route('servicos.armazenar')}}">
+        <div class="card mb-3 w-50">
+            <div class="card-header">Escolha uma opção (não selecionar nada irá gerar orçamento e cadastrar o serviço)</div>
+            <div class="card-body">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="option" id="exampleRadios1" value="true">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Gerar orçamento e não cadastrar serviço
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="option" id="exampleRadios2" value="false">
+                    <label class="form-check-label" for="exampleRadios2">
+                        Não gerar orçamento e cadastrar serviço
+                    </label>
+                </div>
+            </div>
+        </div>
+
         <h1>Cadastro de novos serviços</h1>
         @csrf
 

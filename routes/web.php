@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\servicoController;
 use App\Http\Controllers\clienteController;
-use App\Http\Controllers\servicosProdutosController;
+
+use App\Http\Controllers\HoleriteController;
+
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\CarroController;
@@ -66,4 +68,15 @@ Route::prefix('carros')->group(function (){
     Route::post('armazenar', [CarroController::class, 'store'])->name('carros.armazenar');
 });
 
+// Holerite
+Route::prefix('holerite')->group(function (){
+    Route::get('pagamentos', [HoleriteController::class, 'index'])->name('holerite.pagamentos');
+    Route::get('pagamentos/edicao/{pagamento}', [HoleriteController::class, 'edit'])->name('holerite.editarPagamento');
+    Route::get('pagamentos/computar', [HoleriteController::class, 'computarPagamento'])->name('holerite.computarPagamento');
+    Route::put('pagamentos/atualizar/{pagamento}', [HoleriteController::class, 'update'])->name('holerite.atualizarPagamento');
+});
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
