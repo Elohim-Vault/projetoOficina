@@ -28,6 +28,7 @@ class dashboardController extends Controller
      */
     public function index()
     {
+
         $holeriteRepository = new HoleriteRepository(new Holerite());
         $produtoRepository = new ProdutoRepository(new Produto());
 

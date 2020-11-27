@@ -6,6 +6,7 @@ use App\Http\Controllers\clienteController;
 
 use App\Http\Controllers\HoleriteController;
 
+use App\Http\Controllers\TelefoneController;
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\CarroController;
@@ -21,9 +22,30 @@ use App\Http\Controllers\dashboardController;
 |
 */
 
+
+
 Route::middleware(['auth'])->group(function (){
 
-    Route::get('/', [dashboardController::class, 'index'])->name('dashboard');
+    Route::middleware(['admin'])->group(function (){
+        Route::get('/', [dashboardController::class, 'index'])->name('dashboard');
+
+        // Funcionários
+        Route::prefix('funcionarios')->group(function (){
+            Route::get('', [FuncionarioController::class, 'index'])->name('funcionarios.index');
+            Route::get('cadastro', [FuncionarioController::class, 'create'])->name('funcionarios.cadastro');
+            Route::post('armazenar', [FuncionarioController::class, 'store'])->name('funcionarios.armazenar');
+            Route::get('{funcionario}', [FuncionarioController::class, 'show'])->name('funcionarios.detalhes');
+        });
+
+        // Holerite
+        Route::prefix('holerite')->group(function (){
+            Route::get('pagamentos', [HoleriteController::class, 'index'])->name('holerite.pagamentos');
+            Route::get('pagamentos/edicao/{pagamento}', [HoleriteController::class, 'edit'])->name('holerite.editarPagamento');
+            Route::get('pagamentos/computar', [HoleriteController::class, 'computarPagamento'])->name('holerite.computarPagamento');
+            Route::put('pagamentos/atualizar/{pagamento}', [HoleriteController::class, 'update'])->name('holerite.atualizarPagamento');
+        });
+    });
+
 
     // Serviços
     Route::prefix('servicos')->group(function (){
@@ -47,13 +69,6 @@ Route::middleware(['auth'])->group(function (){
         Route::get('/{id}', [clienteController::class, 'show'])->name('clientes.detalhes');
     });
 
-    // Funcionários
-    Route::prefix('funcionarios')->group(function (){
-        Route::get('', [FuncionarioController::class, 'index'])->name('funcionarios.index');
-        Route::get('cadastro', [FuncionarioController::class, 'create'])->name('funcionarios.cadastro');
-        Route::post('armazenar', [FuncionarioController::class, 'store'])->name('funcionarios.armazenar');
-        Route::get('{funcionario}', [FuncionarioController::class, 'show'])->name('funcionarios.detalhes');
-    });
 
     // Produtos
     Route::prefix('produtos')->group(function (){
@@ -67,16 +82,19 @@ Route::middleware(['auth'])->group(function (){
     Route::prefix('carros')->group(function (){
         Route::get('cadastro/{cliente}', [CarroController::class, 'create'])->name('carros.cadastro');
         Route::post('armazenar', [CarroController::class, 'store'])->name('carros.armazenar');
+        Route::get('deletar/{carro}', [CarroController::class, 'destroy'])->name('carros.deletar');
+        Route::get('editar/{carro}', [CarroController::class, 'edit'])->name('carros.editar');
+        Route::put('atualizar/{carro}', [CarroController::class, 'update'])->name('carros.atualizar');
     });
 
-    // Holerite
-    Route::prefix('holerite')->group(function (){
-        Route::get('pagamentos', [HoleriteController::class, 'index'])->name('holerite.pagamentos');
-        Route::get('pagamentos/edicao/{pagamento}', [HoleriteController::class, 'edit'])->name('holerite.editarPagamento');
-        Route::get('pagamentos/computar', [HoleriteController::class, 'computarPagamento'])->name('holerite.computarPagamento');
-        Route::put('pagamentos/atualizar/{pagamento}', [HoleriteController::class, 'update'])->name('holerite.atualizarPagamento');
+    // Telefones
+    Route::prefix('telefones')->group(function (){
+        Route::get('cadastro/{cliente}', [TelefoneController::class, 'create'])->name('telefones.cadastro');
+        Route::post('armazenar', [TelefoneController::class, 'store'])->name('telefones.armazenar');
+        Route::get('deletar/{telefone}', [TelefoneController::class, 'destroy'])->name('telefones.deletar');
+        Route::get('editar/{telefone}', [TelefoneController::class, 'edit'])->name('telefones.editar');
+        Route::put('atualizar/{telefone}', [TelefoneController::class, 'update'])->name('telefones.atualizar');
     });
-
 });
 
 Auth::routes(['register' => false]);

@@ -18,7 +18,7 @@ class Funcionario extends Model
     }
 
     public function Endereco(){
-        return $this->hasMany(Endereco::class, 'IdEndereco', 'IdEndereco');
+        return $this->hasOne(Endereco::class, 'IdEndereco', 'IdEndereco');
     }
 
     public function Servicos(){

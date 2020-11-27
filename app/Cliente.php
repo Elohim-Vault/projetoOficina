@@ -21,7 +21,7 @@ class Cliente extends Model
     }
 
     public function Telefones(){
-        return $this->belongsTo(Telefone::class, 'IdCliente', 'Cliente');
+        return $this->hasMany(Telefone::class, 'Cliente', 'IdCliente');
     }
 
     public function Juridico(){

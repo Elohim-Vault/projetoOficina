@@ -20,7 +20,7 @@ class Endereco extends Model
     }
 
     public function Funcionario(){
-        return $this->belongsTo(Funcionario::class );
+        return $this->belongsTo(Funcionario::class);
     }
 
     public function Bairro(){

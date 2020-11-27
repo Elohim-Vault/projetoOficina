@@ -25,7 +25,7 @@ class ServicoRepository
 
     public function paginate(int $quantidadePorPaginas)
     {
-        return $this->model::orderBy('IdServico', 'DESC')->paginate($quantidadePorPaginas);
+        return $this->model::orderBy('StatusServ', 'DESC')->paginate($quantidadePorPaginas);
     }
 
     public function create(array $data)

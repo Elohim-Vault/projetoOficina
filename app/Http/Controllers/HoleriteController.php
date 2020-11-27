@@ -103,6 +103,7 @@ class HoleriteController extends Controller
         $funcionarios = $funcionarioRepository->findAll();
 
         $this->repository->computarPagamento($funcionarios);
+        return redirect()->back();
 
     }
 

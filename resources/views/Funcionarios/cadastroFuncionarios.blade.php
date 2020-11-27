@@ -9,12 +9,12 @@
 
         <div class="form-group">
             <label for="cpf">CPF</label>
-            <input type="text" class="form-control" id="cpf" name="cpf">
+            <input type="text" class="form-control" data-mask="000.000.000-00" id="cpf" name="cpf">
         </div>
 
         <div class="form-group">
             <label for="cpf">RG</label>
-            <input type="text" class="form-control" id="rg" name="rg">
+            <input type="text" class="form-control" data-mask="00.000.000-0" id="rg" name="rg">
         </div>
 
         <div class="form-group">
@@ -54,7 +54,7 @@
 
             <div class="form-group col-md-2">
                 <label for="cep">CEP</label>
-                <input type="text" class="form-control" id="cep" name="cep">
+                <input type="text" class="form-control" data-mask="00000-000" id="cep" name="cep">
             </div>
 
             <div class="form-group col-md-3">

@@ -31,11 +31,28 @@
         </div>
 
         <ul class="list-unstyled components">
+            @if(Auth::user()->admin)
             <li class="active">
                 <span class="linksComIcon">
                     <a href="{{ url("/") }}"><i class="fas fa-home"></i> Inicio</a>
                 </span>
             </li>
+
+                <li>
+                    <a href="#funcionariosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-address-book"></i> Funcionários</a>
+                    <ul class="collapse list-unstyled" id="funcionariosSubmenu">
+                        <li>
+                            <a href="{{ route("funcionarios.index") }}">Listar</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('funcionarios.cadastro') }}">Cadastrar</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('holerite.pagamentos') }}">Historico de pagamentos</a>
+                        </li>
+                    </ul>
+                </li>
+            @endif
             <li>
                 <a href="#servicosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-wrench"></i> Serviços</a>
                 <ul class="collapse list-unstyled" id="servicosSubmenu">
@@ -58,20 +75,6 @@
                     </li>
                     <li>
                         <a href="{{ route('clientes.cadastroJuridico') }}">Cadastrar cliente juridico</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#funcionariosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-address-book"></i> Funcionários</a>
-                <ul class="collapse list-unstyled" id="funcionariosSubmenu">
-                    <li>
-                        <a href="{{ route("funcionarios.index") }}">Listar</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('funcionarios.cadastro') }}">Cadastrar</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('holerite.pagamentos') }}">Historico de pagamentos</a>
                     </li>
                 </ul>
             </li>
@@ -121,4 +124,5 @@
         @yield('conteudo')
     </div>
 </body>
+<script type="text/javascript" src="//assets.locaweb.com.br/locastyle/edge/javascripts/locastyle.js"></script>
 </html>

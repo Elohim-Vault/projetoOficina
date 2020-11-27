@@ -24,7 +24,7 @@
                 <tr>
                     <th scope="row">{{ $cliente->IdCliente }}</th>
                     <td>{{ $cliente->Nome }}</td>
-                    <td>{{ $cliente->Fisico->Cpf }}</td>
+                    <td data-mask="000.000.000-00">{{ $cliente->Fisico->Cpf }}</td>
                     <td><a href="{{ route('clientes.detalhes', $cliente->IdCliente) }}" class="btn btn-primary">Ver mais</a> </td>
                     <td><a href="" class="btn btn-warning">Editar</a></td>
                     <td><button class="btn btn-danger" id="btnDeletarCliente">Deletar</button></td>
@@ -51,7 +51,7 @@
                 <tr>
                     <th scope="row">{{ $cliente->IdCliente }}</th>
                     <td>{{ $cliente->Nome }}</td>
-                    <td>{{ $cliente->Juridico->CNPJ }}</td>
+                    <td data-mask="00.000.000/0000-00">{{ $cliente->Juridico->CNPJ }}</td>
                     <td><a href="{{ route('clientes.detalhes', $cliente->IdCliente) }}" class="btn btn-primary">Ver mais</a> </td>
                     <td><a href="" class="btn btn-warning">Editar</a></td>
                     <td><button class="btn btn-danger" id="btnDeletarCliente">Deletar</button></td>

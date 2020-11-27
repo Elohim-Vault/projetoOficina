@@ -12,17 +12,17 @@
 
         <div class="form-group">
             <label for="cpf">CPF</label>
-            <input type="text" class="form-control" id="cpf" name="cpf">
+            <input type="text" class="form-control" data-mask="000.000.000-00" id="cpf" name="cpf">
         </div>
 
         <div class="form-group">
             <label for="rg">RG</label>
-            <input type="text" class="form-control" id="rg" name="rg" required>
+            <input type="text" class="form-control" data-mask="00.000.000-0" id="rg" name="rg" required>
         </div>
 
         <div class="form-group">
             <label for="telefone">Telefone</label>
-            <input type="text" class="form-control" id="telefone" name="telefone" required>
+            <input type="text" class="form-control" data-mask="00000-0000" id="telefone" name="telefone" required>
         </div>
 
         <div class="form-group">
@@ -47,7 +47,7 @@
 
             <div class="form-group col-md-3">
                 <label for="cep">CEP</label>
-                <input type="text" class="form-control" id="cep" name="cep" required>
+                <input type="text" class="form-control" data-mask="00000-000" id="cep" name="cep" required>
             </div>
 
             <div class="form-group col-md-3">

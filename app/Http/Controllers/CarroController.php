@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Carro;
 use App\Cliente;
+use App\Repositories\CarroRepository;
 use App\Repositories\ClienteRepository;
 use Illuminate\Http\Request;
+use SebastianBergmann\CodeCoverage\TestFixture\C;
 
 class CarroController extends Controller
 {
-    private $model;
-    public function __construct(Carro $model){
-        $this->model = $model;
+    private $repository;
+    public function __construct(){
+        $this->repository = new CarroRepository(new Carro);
     }
     /**
      * Display a listing of the resource.
@@ -60,37 +62,24 @@ class CarroController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    public function edit(Carro $carro)
     {
-        //
+        return view('Carros.editarCarros', [
+            'carro' => $carro
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function update(Request $request, Carro $carro)
     {
-        //
+        $this->repository->update($request->all(), $carro->Idcarro);
+        return redirect()->route('clientes.detalhes', $carro->proprietario->IdCliente);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(Carro $carro)
     {
-        //
+        $this->repository->delete($carro->Idcarro);
+        return redirect()->back();
     }
 }

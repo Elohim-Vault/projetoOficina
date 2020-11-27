@@ -23,19 +23,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb7a18fe-5964-455b-9a00-97589507e5e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/sass/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Carros/editarCarros.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Telefones/cadastroTelefones.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FuncionarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FuncionarioController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Cliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Cliente.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Endereco.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Endereco.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Funcionario.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Funcionario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CarroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CarroController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HoleriteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HoleriteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/dashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/dashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ServicoRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ServicoRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Clientes/cadastroClientesFisico.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Clientes/cadastroClientesFisico.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Clientes/cadastroClientesJuridico.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Clientes/cadastroClientesJuridico.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Clientes/detalhesClientes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Clientes/detalhesClientes.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Clientes/listagemClientes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Clientes/listagemClientes.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Dashboard/listagemDashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Dashboard/listagemDashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Funcionarios/cadastroFuncionarios.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Funcionarios/cadastroFuncionarios.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Funcionarios/detalhesFuncionarios.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Funcionarios/detalhesFuncionarios.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -241,6 +247,7 @@
       <workItem from="1606226676412" duration="13530000" />
       <workItem from="1606312299181" duration="165000" />
       <workItem from="1606313993464" duration="7036000" />
+      <workItem from="1606404714404" duration="14936000" />
     </task>
     <servers />
   </component>
@@ -292,20 +299,9 @@
       <screen x="0" y="0" width="1474" height="808" />
     </state>
     <state x="530" y="263" key="scopes/0.0.1474.808@0.0.1474.808" timestamp="1606227718696" />
-    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup" timestamp="1606335089234">
+    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup" timestamp="1606420745177">
       <screen x="0" y="0" width="1474" height="808" />
     </state>
-    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup/0.0.1474.808@0.0.1474.808" timestamp="1606335089234" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/Servicos/detalhesServicos.blade.php</url>
-          <line>34</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup/0.0.1474.808@0.0.1474.808" timestamp="1606420745177" />
   </component>
 </project>
