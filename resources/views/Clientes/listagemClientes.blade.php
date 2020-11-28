@@ -24,10 +24,13 @@
                 <tr>
                     <th scope="row">{{ $cliente->IdCliente }}</th>
                     <td>{{ $cliente->Nome }}</td>
-                    <td data-mask="000.000.000-00">{{ $cliente->Fisico->Cpf }}</td>
-                    <td><a href="{{ route('clientes.detalhes', $cliente->IdCliente) }}" class="btn btn-primary">Ver mais</a> </td>
-                    <td><a href="" class="btn btn-warning">Editar</a></td>
-                    <td><button class="btn btn-danger" id="btnDeletarCliente">Deletar</button></td>
+                    <td class="" data-mask="000.000.000-00">{{ $cliente->Fisico->Cpf }}</td>
+                    <td><a href="{{ route('clientes.detalhes', $cliente->IdCliente) }}" class="btn btn-primary">Ver
+                            mais</a></td>
+                    <td><a href="{{ route('clientes.editar', $cliente) }}" class="btn btn-warning">Editar</a></td>
+                    <td>
+                        <button class="btn btn-danger" id="btnDeletarCliente">Deletar</button>
+                    </td>
                 </tr>
             @endif
         @endforeach
@@ -52,9 +55,12 @@
                     <th scope="row">{{ $cliente->IdCliente }}</th>
                     <td>{{ $cliente->Nome }}</td>
                     <td data-mask="00.000.000/0000-00">{{ $cliente->Juridico->CNPJ }}</td>
-                    <td><a href="{{ route('clientes.detalhes', $cliente->IdCliente) }}" class="btn btn-primary">Ver mais</a> </td>
-                    <td><a href="" class="btn btn-warning">Editar</a></td>
-                    <td><button class="btn btn-danger" id="btnDeletarCliente">Deletar</button></td>
+                    <td><a href="{{ route('clientes.detalhes', $cliente->IdCliente) }}" class="btn btn-primary">Ver
+                            mais</a></td>
+                    <td><a href="{{ route('clientes.editar', $cliente) }}" class="btn btn-warning">Editar</a></td>
+                    <td>
+                        <button class="btn btn-danger" id="btnDeletarCliente">Deletar</button>
+                    </td>
                 </tr>
             @endif
         @endforeach
@@ -68,9 +74,8 @@
     @if($clientes->nextPageUrl())
         <a href="{{ $clientes->nextPageUrl() }}"><i class="right-arrow" class="fas fa-angle-right"></i></a>
     @endif
-
     <script>
-        $(function() {
+        $(function () {
             $('button[id="btnDeletarCliente"]').click(function (event) {
                 event.preventDefault();
                 $.ajax({
@@ -80,14 +85,14 @@
                     url: "{{ route('clientes.deletar', $cliente->IdCliente) }}",
                     type: "delete",
                     dataType: "json",
-                    success: function (response){
-                        if(response.success === true){
+                    success: function (response) {
+                        if (response.success === true) {
                             window.location.href = "{{ route('clientes.index') }}"
-                        }else{
+                        } else {
                             alert("DEU RUIM!");
                         }
                     }
-                    });
+                });
             });
         });
     </script>

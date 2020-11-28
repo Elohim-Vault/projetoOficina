@@ -36,8 +36,9 @@ class ClienteRepository
 
     }
 
-    public function update(array $data, $id)
+    public function update($id, array $data)
     {
+
         return $this->model->find($id)->update($data);
     }
 

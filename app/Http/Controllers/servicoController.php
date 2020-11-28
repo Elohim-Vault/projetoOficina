@@ -160,9 +160,7 @@ class servicoController extends Controller
 
 
         return view('Servicos.editaServicos', [
-            'servico' => $servico,
-            'funcionarios' => $this->modelFuncionarios->findAll(),
-            'carros' => $this->modelCarros->findAll(),
+            'servico' => $servico
         ]);
     }
 
@@ -170,18 +168,15 @@ class servicoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param Servico $servico
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Servico $servico)
     {
 
-        $servicoEditado = $this->model->update($id, [
-            "IdFuncionario" => $request->input('IdFuncionario'),
-            'Carro' => $request->input('Carro'),
+        $servicoEditado = $this->model->update($servico->IdServico, [
             "Tiposervico" => $request->input('Tiposervico'),
-            "StatusServ" => 'Em andamento',
-            "DataChegada" => $request->input('DataChegada'),
-            "PrevisãoSaida" => $request->input('PrevisãoSaida')
+            "DataChegada" => date('Y-m-d h:m:s', strtotime($request->input('DataChegada'))),
+            "PrevisãoSaida" => date('Y-m-d h:m:s', strtotime($request->input('PrevisãoSaida'))),
         ]);
 
         if($servicoEditado){

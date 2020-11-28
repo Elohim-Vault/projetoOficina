@@ -1,8 +1,14 @@
 @extends('header')
 @section('conteudo')
-    <div id="errors">
-
-    </div>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form method="POST" id="formClienteFisico" action="{{ route('clientes.armazenar') }}">
         @csrf
         <div class="form-group">
@@ -27,7 +33,8 @@
 
         <div class="form-group">
             <label for="logradouro">Logradouro</label>
-            <input type="text" class="form-control" name="logradouro" id="logradouro" placeholder="Rua Jardim das palmas" required>
+            <input type="text" class="form-control" name="logradouro" id="logradouro"
+                   placeholder="Rua Jardim das palmas" required>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -57,32 +64,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Cadastrar</button>
     </form>
-    <script>
-        $(function(){
-            $('form[id="formClienteFisico"]').submit(function (event){
-                event.preventDefault();
 
-                $.ajax({
-                    url: "{{ route('clientes.armazenar') }}",
-                    type: "post",
-                    data: $(this).serialize(),
-                    dataType: 'json',
-                    success: function (response){
-                        if(response.success === true){
-                            window.location.href = "{{ route('clientes.index') }}"
-                        }
-                    },
-                    error: function (err){
-                        if(err.status == 422){
-                            $.each(err.responseJSON.errors, function (key, error){
-                                $('#errors').append('<div class="alert alert-danger" role="alert">'+ error[0] + '</div>');
-                            });
-                        }
-                    }
-                })
-            });
-        });
-    </script>
 @endsection
 
 

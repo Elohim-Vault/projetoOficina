@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\ClienteFisico;
 use App\ClienteJuridico;
 use App\Endereco;
+use App\Utilities\FormataCampos;
 use App\Telefone;
 use App\Cliente;
 use App\Bairro;
@@ -16,16 +17,28 @@ use App\Repositories\EnderecoRepository;
 use App\Repositories\TelefoneRepository;
 use App\Repositories\ClienteRepository;
 
+
+
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Http;use Illuminate\Support\Facades\Validator;
 
 class clienteController extends Controller
 {
-    private $model;
+    private $repository;
+    private $bairroRepository;
+    private $cidadeRepository;
+    private $telefoneRepository;
+    private $enderecoRepository;
 
-    public function __construct(){
-        $this->model = new ClienteRepository(new Cliente());
+    public function __construct()
+    {
+        $this->repository = new ClienteRepository(new Cliente());
+        $this->bairroRepository = new BairroRepository(new Bairro());
+        $this->cidadeRepository = new CidadeRepository(new Cidade());
+        $this->telefoneRepository = new TelefoneRepository(new Telefone());
+        $this->enderecoRepository = new EnderecoRepository(new Endereco());
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +47,7 @@ class clienteController extends Controller
     public function index()
     {
         return view('Clientes.listagemClientes', [
-            'clientes' => $this->model->paginate(8)]
+                'clientes' => $this->repository->paginate(8)]
         );
     }
 
@@ -49,72 +62,73 @@ class clienteController extends Controller
     }
 
 
-    public function createJuridico(){
+    public function createJuridico()
+    {
         return view('Clientes.cadastroClientesJuridico');
 
     }
+
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
 
-        $this->validate($request, [
-            'nome' => 'required',
-            'cpf' => 'required',
+        $request->validate([
+            'cpf' => 'sometimes|string|min:11',
+            'rg' => 'sometimes|string|min:9',
+            'cnpj' => 'sometimes|string|min:14',
+            'ins' => 'sometimes|string|min:9',
+            'cep' => 'string|min:8',
+            'telefone' => 'string|min:8'
         ]);
 
-        $bairro = new BairroRepository(new Bairro());
-        $cidade = new CidadeRepository(new Cidade());
-        $telefone = new TelefoneRepository(new Telefone());
-        $endereco = new EnderecoRepository(new Endereco());
 
-
-        $idCidade = $cidade->firstOrNew([
+        $idCidade = $this->cidadeRepository->firstOrNew([
             'Cidade' => $request->input('cidade')
         ])->IdCidade;
 
-        $idBairro = $bairro->firstOrNew([
+        $idBairro = $this->bairroRepository->firstOrNew([
             'Bairro' => $request->input('bairro')
         ])->IdBairro;
 
 
-        $idEndereco = $endereco->create([
+        $idEndereco = $this->enderecoRepository->create(FormataCampos::formataCampos([
             'CEP' => $request->input('cep'),
             'Logradouro' => $request->input('logradouro'),
             'numero' => $request->input('numero'),
             'BairroID' => $idBairro,
             'CidadeID' => $idCidade,
-        ])->IdEndereco;
+        ]))->IdEndereco;
 
 
-        $idCliente = $this->model->create([
+        $idCliente = $this->repository->create(FormataCampos::formataCampos([
             'Nome' => $request->input('nome'),
             'IdEndereco' => $idEndereco
-        ])->IdCliente;
+        ]))->IdCliente;
 
 
-        if($request->input('cnpj')){
-            ClienteJuridico::create([
+        if ($request->input('cnpj')) {
+            ClienteJuridico::create(FormataCampos::formataCampos([
                 'IdCliente' => $idCliente,
                 'INS' => $request->input('ins'),
                 'CNPJ' => $request->input('cnpj')
-            ]);
-        }else{
-            ClienteFisico::create([
+            ]));
+        } else {
+            ClienteFisico::create(FormataCampos::formataCampos([
                 'IdCliente' => $idCliente,
                 'Cpf' => $request->input('cpf'),
                 'Rg' => $request->input('rg')
-            ]);
+            ]));
         }
 
-        $telefone->create([
+        $this->telefoneRepository->create(FormataCampos::formataCampos([
             'Numero' => $request->input('telefone'),
             'Cliente' => $idCliente
-        ]);
+        ]));
 
         return response()->json([
             'success' => true
@@ -125,50 +139,78 @@ class clienteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         return view('Clientes.detalhesClientes', [
-            'cliente' => $this->model->find($id)
+            'cliente' => $this->repository->find($id)
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Cliente $cliente)
     {
-        //
+        return view('Clientes.editarCliente', [
+            'cliente' => $cliente
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param Cliente $cliente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Cliente $cliente)
     {
-        //
+
+        $request->validate([
+            'Cpf' => 'sometimes|string|min:11',
+            'Rg' => 'sometimes|string|min:9',
+            'CNPJ' => 'sometimes|string|min:14',
+            'INS' => 'sometimes|string|min:9',
+            'CEP' => 'string|min:7',
+        ]);
+
+        die();
+        $dados = FormataCampos::formataCampos($request->all());
+
+        $dados['CidadeID'] = $this->cidadeRepository->firstOrNew($request->all('Cidade'))->IdCidade;
+        $dados['BairroID'] = $this->bairroRepository->firstOrNew($request->all('Bairro'))->IdBairro;
+
+        $this->enderecoRepository->update($dados, $cliente->IdEndereco);
+        $this->repository->update($cliente->IdCliente, $dados);
+
+
+        if($cliente->fisico)
+        {
+            ClienteFisico::find($cliente->IdCliente, 'IdCliente')->update($dados);
+        }else{
+            ClienteJuridico::find($cliente->IdCliente, 'IdCliente')->update($dados);
+        }
+
+        return redirect()->route('clientes.detalhes', $cliente->IdCliente);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $foiDeletado = $this->model->delete($id);
+        $foiDeletado = $this->repository->delete($id);
         return response()->json([
-           'success' => true
+            'success' => true
         ]);
     }
 }

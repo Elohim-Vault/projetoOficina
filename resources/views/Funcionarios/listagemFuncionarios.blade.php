@@ -17,7 +17,7 @@
                 <td>{{ $funcionario->NomeFuncionario }}</td>
                 <td>{{ $funcionario->Funcao }}</td>
                 <td><a href="{{ route('funcionarios.detalhes', $funcionario) }}" class="btn btn-primary">Detalhes</a></td>
-                <td><a href="#" class="btn btn-warning">Editar</a></td>
+                <td><a href="{{ route('funcionarios.editar', $funcionario) }}" class="btn btn-warning">Editar</a></td>
             </tr>
         @endforeach
         </tbody>

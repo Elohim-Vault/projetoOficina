@@ -12,15 +12,24 @@ use App\Repositories\CidadeRepository;
 use App\Repositories\EnderecoRepository;
 use App\Repositories\salarioRepository;
 use App\SalarioBase;
+use App\Utilities\FormataCampos;
 use Illuminate\Http\Request;
 use App\Repositories\FuncionarioRepository;
 use Illuminate\Support\Facades\Auth;
 
 class FuncionarioController extends Controller
 {
-    private $model;
+    private $repository;
+    private $enderecoRepository;
+    private $bairroRepository;
+    private $cidadeRepository;
+
     public function __construct(){
-        $this->model = new FuncionarioRepository(new Funcionario());
+        $this->repository = new FuncionarioRepository(new Funcionario());
+        $this->enderecoRepository = new EnderecoRepository(new Endereco());
+        $this->bairroRepository = new BairroRepository(new Bairro());
+        $this->cidadeRepository = new CidadeRepository(new Cidade());
+
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +39,7 @@ class FuncionarioController extends Controller
     public function index()
     {
         return view('Funcionarios.listagemFuncionarios', [
-            'funcionarios' => $this->model->paginate(8)
+            'funcionarios' => $this->repository->paginate(8)
         ]);
     }
 
@@ -52,29 +61,26 @@ class FuncionarioController extends Controller
      */
     public function store(Request $request)
     {
-        $endereco = new EnderecoRepository(new Endereco());
-        $bairro = new BairroRepository(new Bairro());
-        $cidade = new CidadeRepository(new Cidade());
         $registerController = new RegisterController();
 
-        $idBairro = $bairro->firstOrNew([
+        $idBairro = $this->bairroRepository->firstOrNew([
            'Bairro' => $request->bairro
         ])->IdBairro;
 
-        $idCidade = $cidade->firstOrNew([
+        $idCidade = $this->cidadeRepository->firstOrNew([
             'Cidade' => $request->cidade
         ])->IdCidade;
 
-        $idEndereco = $endereco->create([
+        $idEndereco = $this->enderecoRepository->create(FormataCampos::formataCampos([
             'CEP' => $request->cep,
             'Logradouro' => $request->logradouro,
             'BairroID' => $idBairro,
             'CidadeID' => $idCidade,
-            'Numero' => $request->numero,
+            'numero' => $request->numero,
             'Complemento' => $request->complemento
-        ])->IdEndereco;
+        ]))->IdEndereco;
 
-        $idFuncionario = $this->model->create([
+        $idFuncionario = $this->repository->create(FormataCampos::formataCampos([
             'Cpf' => $request->input('cpf'),
             'RG' => $request->input('rg'),
             'NomeFuncionario' => $request->input('nome'),
@@ -83,7 +89,7 @@ class FuncionarioController extends Controller
             'TurnoFim' => $request->input('TurnoFim'),
             'salario' => $request->salario,
             'IdEndereco' => $idEndereco,
-        ])->IdFuncionario;
+        ]))->IdFuncionario;
 
 
 
@@ -116,24 +122,55 @@ class FuncionarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Funcionario  $funcionario
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Funcionario $funcionario)
     {
-        //
+        return view('Funcionarios.editarFuncionario', [
+            'funcionario' => $funcionario
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Funcionario $funcionario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Funcionario $funcionario)
     {
-        //
+        $idBairro = $this->bairroRepository->firstOrNew([
+            'Bairro' => $request->bairro
+        ])->IdBairro;
+
+        $idCidade = $this->cidadeRepository->firstOrNew([
+            'Cidade' => $request->cidade
+        ])->IdCidade;
+
+        $this->enderecoRepository->update(FormataCampos::formataCampos([
+            'CEP' => $request->cep,
+            'Logradouro' => $request->logradouro,
+            'BairroID' => $idBairro,
+            'CidadeID' => $idCidade,
+            'numero' => $request->numero,
+            'Complemento' => $request->complemento
+        ]), $funcionario->IdEndereco);
+
+        $this->repository->update(FormataCampos::formataCampos([
+            'Cpf' => $request->input('cpf'),
+            'RG' => $request->input('rg'),
+            'NomeFuncionario' => $request->input('nome'),
+            'Funcao' => $request->input('funcao'),
+            'TurnoInicio' => $request->input('TurnoInicio'),
+            'TurnoFim' => $request->input('TurnoFim'),
+            'salario' => $request->salario,
+            'IdEndereco' => $funcionario->IdEndereco,
+        ]), $funcionario->IdFuncionario);
+
+        return redirect()->route('funcionarios.index');
+
     }
 
     /**

@@ -17,7 +17,7 @@ class Cliente extends Model
     }
 
     public function Endereco(){
-        return $this->HasMany(Endereco::class, 'IdEndereco', 'IdEndereco');
+        return $this->HasOne(Endereco::class, 'IdEndereco', 'IdEndereco');
     }
 
     public function Telefones(){

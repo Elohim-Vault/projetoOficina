@@ -13,7 +13,7 @@ class Endereco extends Model
     public $primaryKey = 'IdEndereco';
     public $timestamps = false;
 
-    protected $fillable = ['IdEndereco', 'CEP', 'Cliente', 'Logradouro', 'Numero', 'BairroID', 'CidadeID'];
+    protected $fillable = ['IdEndereco', 'CEP', 'Cliente', 'Logradouro', 'Complemento','numero', 'BairroID', 'CidadeID'];
 
     public function Cliente(){
         return $this->belongsTo(Cliente::class);

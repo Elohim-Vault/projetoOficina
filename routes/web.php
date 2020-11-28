@@ -35,6 +35,8 @@ Route::middleware(['auth'])->group(function (){
             Route::get('cadastro', [FuncionarioController::class, 'create'])->name('funcionarios.cadastro');
             Route::post('armazenar', [FuncionarioController::class, 'store'])->name('funcionarios.armazenar');
             Route::get('{funcionario}', [FuncionarioController::class, 'show'])->name('funcionarios.detalhes');
+            Route::get('editar/{funcionario}', [FuncionarioController::class, 'edit'])->name('funcionarios.editar');
+            Route::put('atualizar/{funcionario}', [FuncionarioController::class, 'update'])->name('funcionarios.atualizar');
         });
 
         // Holerite
@@ -54,7 +56,7 @@ Route::middleware(['auth'])->group(function (){
         Route::post('armazenar', [servicoController::class, 'store'])->name('servicos.armazenar');
         Route::get('{servico}', [servicoController::class, 'show'])->name('servicos.detalhes');
         Route::get('editar/{id}', [servicoController::class, 'edit'])->name('servicos.editar');
-        Route::post('atualizar/{id}', [servicoController::class, 'update'])->name('servicos.atualizar');
+        Route::post('atualizar/{servico}', [servicoController::class, 'update'])->name('servicos.atualizar');
         Route::get('deletar/{id}', [servicoController::class, 'destroy'])->name('servicos.deletar');
         Route::get('concluir/{id}', [servicoController::class, 'done'])->name('servicos.concluir');
     });
@@ -67,6 +69,8 @@ Route::middleware(['auth'])->group(function (){
         Route::post('/armazenar', [clienteController::class, 'store'])->name('clientes.armazenar');
         Route::delete('/deletar/{id}', [clienteController::class, 'destroy'])->name('clientes.deletar');
         Route::get('/{id}', [clienteController::class, 'show'])->name('clientes.detalhes');
+        Route::get('/editar/{cliente}', [clienteController::class, 'edit'])->name('clientes.editar');
+        Route::put('/atualizar/{cliente}', [clienteController::class, 'update'])->name('clientes.atualizar');
     });
 
 

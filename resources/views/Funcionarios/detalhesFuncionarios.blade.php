@@ -49,10 +49,10 @@
                 </div>
 
                 @if($funcionario->endereco->Complemento)
-                <div class="form-group col-md-3">
-                    <label for="complemento">Complemento</label>
-                    <input type="text" class="form-control" id="complemento" name="complemento">
-                </div>
+                    <div class="form-group col-md-3">
+                        <label for="complemento">Complemento</label>
+                        <input type="text" class="form-control" id="complemento" name="complemento" value="{{ $funcionario->endereco->Complemento }}">
+                    </div>
                 @endif
             </div>
             <div class="form-group col-md-1.5" >

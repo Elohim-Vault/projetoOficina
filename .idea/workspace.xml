@@ -23,25 +23,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb7a18fe-5964-455b-9a00-97589507e5e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/Carros/editarCarros.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Telefones/cadastroTelefones.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Clientes/editarCliente.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Cliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Cliente.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ClienteFisico.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ClienteFisico.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Endereco.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Endereco.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Funcionario.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Funcionario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CarroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CarroController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HoleriteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HoleriteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/dashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/dashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/ServicoRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ServicoRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FuncionarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FuncionarioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/clienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/clienteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/servicoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/servicoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ClienteRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ClienteRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/EnderecoRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/EnderecoRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Clientes/cadastroClientesFisico.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Clientes/cadastroClientesFisico.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Clientes/cadastroClientesJuridico.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Clientes/cadastroClientesJuridico.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Clientes/detalhesClientes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Clientes/detalhesClientes.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Clientes/listagemClientes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Clientes/listagemClientes.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Dashboard/listagemDashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Dashboard/listagemDashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Funcionarios/cadastroFuncionarios.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Funcionarios/cadastroFuncionarios.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Funcionarios/detalhesFuncionarios.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Funcionarios/detalhesFuncionarios.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Funcionarios/listagemFuncionarios.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Funcionarios/listagemFuncionarios.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Servicos/editaServicos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Servicos/editaServicos.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -248,6 +246,10 @@
       <workItem from="1606312299181" duration="165000" />
       <workItem from="1606313993464" duration="7036000" />
       <workItem from="1606404714404" duration="14936000" />
+      <workItem from="1606444839667" duration="1869000" />
+      <workItem from="1606485102833" duration="6091000" />
+      <workItem from="1606505360281" duration="1017000" />
+      <workItem from="1606588136216" duration="8582000" />
     </task>
     <servers />
   </component>
@@ -279,6 +281,10 @@
       <screen x="0" y="0" width="1474" height="808" />
     </state>
     <state x="468" y="159" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1474.808@0.0.1474.808" timestamp="1605645581789" />
+    <state x="93" y="93" width="1288" height="622" key="DiffContextDialog" timestamp="1606446067021">
+      <screen x="0" y="0" width="1474" height="808" />
+    </state>
+    <state x="93" y="93" width="1288" height="622" key="DiffContextDialog/0.0.1474.808@0.0.1474.808" timestamp="1606446067021" />
     <state x="246" y="49" key="SettingsEditor" timestamp="1606314106795">
       <screen x="0" y="0" width="1474" height="808" />
     </state>
@@ -291,17 +297,17 @@
       <screen x="0" y="0" width="1474" height="808" />
     </state>
     <state x="349" y="41" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1474.808@0.0.1474.808" timestamp="1605743147474" />
-    <state x="394" y="183" key="run.anything.popup" timestamp="1606149645333">
+    <state x="394" y="183" width="672" height="677" key="run.anything.popup" timestamp="1606593516513">
       <screen x="0" y="0" width="1474" height="808" />
     </state>
-    <state x="394" y="183" key="run.anything.popup/0.0.1474.808@0.0.1474.808" timestamp="1606149645333" />
+    <state x="394" y="183" width="672" height="677" key="run.anything.popup/0.0.1474.808@0.0.1474.808" timestamp="1606593516513" />
     <state x="530" y="263" key="scopes" timestamp="1606227718696">
       <screen x="0" y="0" width="1474" height="808" />
     </state>
     <state x="530" y="263" key="scopes/0.0.1474.808@0.0.1474.808" timestamp="1606227718696" />
-    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup" timestamp="1606420745177">
+    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup" timestamp="1606596745198">
       <screen x="0" y="0" width="1474" height="808" />
     </state>
-    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup/0.0.1474.808@0.0.1474.808" timestamp="1606420745177" />
+    <state x="400" y="129" width="672" height="678" key="search.everywhere.popup/0.0.1474.808@0.0.1474.808" timestamp="1606596745198" />
   </component>
 </project>
