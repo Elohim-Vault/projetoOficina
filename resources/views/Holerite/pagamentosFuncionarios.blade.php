@@ -1,6 +1,6 @@
 @extends('header')
 @section('conteudo')
-    <a href="{{ route('holerite.computarPagamento') }}" class="btn btn-primary mb-3">Computar pagamentos</a>
+    <a href="{{ route('holerite.computarPagamento') }}" class="btn btn-primary mb-3 button">Computar pagamentos</a>
     <table class="table table-bordered table-striped text-center">
         <thead>
         <tr>

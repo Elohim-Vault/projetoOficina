@@ -76,16 +76,14 @@ class clienteController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
-            'cpf' => 'sometimes|string|min:11',
-            'rg' => 'sometimes|string|min:9',
-            'cnpj' => 'sometimes|string|min:14',
-            'ins' => 'sometimes|string|min:9',
-            'cep' => 'string|min:8',
+            'cpf' => 'sometimes|string|min:14',
+            'rg' => 'sometimes|string|min:12',
+            'cnpj' => 'sometimes|string|min:18',
+            'ins' => 'sometimes|string|min:15',
+            'cep' => 'string|min:9',
             'telefone' => 'string|min:8'
         ]);
-
 
         $idCidade = $this->cidadeRepository->firstOrNew([
             'Cidade' => $request->input('cidade')
@@ -173,14 +171,14 @@ class clienteController extends Controller
     {
 
         $request->validate([
-            'Cpf' => 'sometimes|string|min:11',
-            'Rg' => 'sometimes|string|min:9',
+            'Cpf' => 'sometimes|string|min:14',
+            'Rg' => 'sometimes|string|min:12',
             'CNPJ' => 'sometimes|string|min:14',
             'INS' => 'sometimes|string|min:9',
-            'CEP' => 'string|min:7',
+            'CEP' => 'string|min:9',
         ]);
 
-        die();
+
         $dados = FormataCampos::formataCampos($request->all());
 
         $dados['CidadeID'] = $this->cidadeRepository->firstOrNew($request->all('Cidade'))->IdCidade;

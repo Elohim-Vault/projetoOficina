@@ -12,10 +12,10 @@ use Symfony\Component\Console\Input\Input;
 class ProdutoController extends Controller
 {
 
-    private $model;
+    private $repository;
 
     public function __construct(){
-        $this->model = new ProdutoRepository(new Produto());
+        $this->repository = new ProdutoRepository(new Produto());
     }
 
     /**
@@ -26,7 +26,7 @@ class ProdutoController extends Controller
     public function index()
     {
         return view('Produtos.listagemProdutos', [
-            'produtos' => $this->model->paginate(8)
+            'produtos' => $this->repository->paginate(8)
         ]);
     }
 
@@ -48,13 +48,13 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        $produtoExiste = $this->model->find($request->Codigo);
+        $produtoExiste = $this->repository->find($request->Codigo);
 
         if($produtoExiste){
             $balancoFinanceiro = new BalancoFinanceiroRepository(new balancoFinanceiro());
 
             $quantidade = $produtoExiste->Quantidade;
-            $this->model->update($request->Codigo, [
+            $this->repository->update($request->Codigo, [
                 'Valor' => $request->Valor,
                 'Quantidade' => $quantidade + $request->Quantidade
             ]);
@@ -64,29 +64,19 @@ class ProdutoController extends Controller
                 'Produto' => $request->Codigo
             ]);
         }else{
-            $this->model->create($request->all());
+            $this->repository->create($request->all());
         }
 
         return redirect()->route('produtos.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     public function search(Request $request)
     {
         if($request->search != ''){
-            $produtos = $this->model->search($request->atributoProduto, $request->search);
+            $produtos = $this->repository->search($request->atributoProduto, $request->search);
         }else{
-            $produtos = $this->model->paginate(8);
+            $produtos = $this->repository->paginate(8);
         }
 
         return response()->json(['produtos' => $produtos]);
@@ -96,34 +86,24 @@ class ProdutoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Produto $produto
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Produto $produto)
     {
-        //
+        return view('Produtos.editarProdutos', ['produto' => $produto]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Produto $produto
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request)
+    public function update(Produto $produto, Request $request)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $this->repository->update($produto->Codigo, $request->all());
+        return redirect()->route('produtos.index');
     }
 }

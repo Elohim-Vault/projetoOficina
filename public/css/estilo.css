@@ -4,8 +4,21 @@
     margin-top: 20px;
 }
 
+table{
+    margin-left: 80px;
+}
+
+.button{
+    margin-left: 80px;
+}
+
+#dashboard{
+    margin-left: 80px;
+}
+
 #cards{
     width: 1800px;
+    margin-left: 45px;
 }
 
 .alert{
@@ -18,7 +31,7 @@
 }
 
 .card h3{
-    font-size: 60px;
+    font-size: 33px;
 }
 
 #btnRegistro{

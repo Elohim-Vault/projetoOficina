@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cliente;
 use App\Repositories\TelefoneRepository;
 use App\Telefone;
+use App\Utilities\FormataCampos;
 use Illuminate\Http\Request;
 
 class TelefoneController extends Controller
@@ -25,11 +26,14 @@ class TelefoneController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'telefone' => 'string|min:8'
+        ]);
 
-        $this->repository->create([
+        $this->repository->create(FormataCampos::formataCampos([
             'Numero' => $request->numero,
             'Cliente' => $request->id
-        ]);
+        ]));
 
         return redirect()->route('clientes.detalhes', $request->id);
     }
@@ -46,7 +50,11 @@ class TelefoneController extends Controller
     }
 
     public function update(Request $request, Telefone $telefone){
-        $this->repository->update($request->all(), $telefone->TelID);
+        $request->validate([
+            'telefone' => 'string|min:8'
+        ]);
+
+        $this->repository->update(FormataCampos::formataCampos($request->all()), $telefone->TelID);
         return redirect()->route('clientes.detalhes', $telefone->cliente->IdCliente);
     }
 }

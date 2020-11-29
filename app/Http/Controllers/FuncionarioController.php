@@ -61,6 +61,14 @@ class FuncionarioController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'cpf' => 'sometimes|string|min:14',
+            'rg' => 'sometimes|string|min:12',
+            'cep' => 'string|min:9',
+        ]);
+
+
         $registerController = new RegisterController();
 
         $idBairro = $this->bairroRepository->firstOrNew([
@@ -141,6 +149,12 @@ class FuncionarioController extends Controller
      */
     public function update(Request $request, Funcionario $funcionario)
     {
+        $request->validate([
+            'cpf' => 'sometimes|string|min:14',
+            'rg' => 'sometimes|string|min:12',
+            'cep' => 'string|min:9',
+        ]);
+
         $idBairro = $this->bairroRepository->firstOrNew([
             'Bairro' => $request->bairro
         ])->IdBairro;

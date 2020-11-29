@@ -1,10 +1,10 @@
 @extends('header')
 @section('conteudo')
-    <table class="table table-bordered text-center" id="produtosTable">
+    <table class="table table-bordered text-center table-md" id="produtosTable">
         <form>
             <div class="form-row align-items-center">
                 <div class="col-auto">
-                    <input type="text" class="form-control mb-2" id="search" name="search" placeholder="Digite aqui...">
+                    <input type="text" class="form-control mb-2 button" id="search" name="search" placeholder="Digite aqui...">
                 </div>
                 <div class="col-auto">
                     <select class="custom-select mb-2" id="atributoProduto" name="atributoProduto">
@@ -25,6 +25,7 @@
             <th scope="col">Marca</th>
             <th scope="col">Quantidade</th>
             <th scope="col">Custo unitario</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -36,6 +37,7 @@
             <td>{{ $produto->Marcaproduto }}</td>
             <td>{{ $produto->Quantidade }}</td>
             <td>{{ $produto->Valor }}</td>
+            <td><a href="{{ route('produtos.editar', $produto) }}" class="btn btn-warning">Editar</a></td>
         </tr>
         @endforeach
         </tbody>

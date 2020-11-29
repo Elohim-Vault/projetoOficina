@@ -80,6 +80,8 @@ Route::middleware(['auth'])->group(function (){
         Route::get('cadastro', [ProdutoController::class, 'create'])->name('produtos.cadastro');
         Route::get('search', [ProdutoController::class, 'search'])->name('produtos.pesquisar');
         Route::post('armazenar', [ProdutoController::class, 'store'])->name('produtos.armazenar');
+        Route::get('editar/{produto}', [ProdutoController::class, 'edit'])->name('produtos.editar');
+        Route::put('atualizar/{produto}', [ProdutoController::class, 'update'])->name('produtos.atualizar');
     });
 
     // Carros
